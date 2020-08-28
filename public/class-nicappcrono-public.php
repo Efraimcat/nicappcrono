@@ -87,6 +87,8 @@ class Nicappcrono_Public
      * @since    1.0.0
      */
     public function NicappAuthShortcode( $atts, $content = "" ) {
+        if( strlen( get_option( 'nicappcrono_clientId' ) ) < 25 ) return;
+        if (! get_post_status ( get_option('nicappcrono_AuthorizationPageId') ) ) return; 
 		$redirect_uri = get_permalink( get_option('nicappcrono_AuthorizationPageId') );
 		if(isset($_POST['access_token'])){
 			$args = array(

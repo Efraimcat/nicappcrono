@@ -588,7 +588,7 @@ class Nicappcrono_Admin
      * @param void
      * 
      */
-    private function CheckAuthPage(){
+    public function CheckAuthPage(){
 		if(get_option('nicappcrono_CreateAuthPage')){
             $auth_page = array(
                 'post_type'    => 'page',
@@ -614,25 +614,25 @@ class Nicappcrono_Admin
      * 
      */
     private function UpdateMasterCalendar(){
+        if( strlen( get_option( 'nicappcrono_clientId' ) ) < 25 ) return false;
         $this->custom_logs( 'UpdateMasterCalendar Start Cron Session' );
-		$fechaFrom = new DateTime();
-		$fechaTo = new DateTime();
-		$fechaTo->add( new DateInterval( 'P180D' ));
-		$MasterEvents = $this->ReadMasterCalendar( $fechaFrom, $fechaTo );
-		if( !$MasterEvents ) return;
-		$loop = new WP_Query( array( 'post_type' => 'nicappcronocalendars' , 'posts_per_page' => 5000 , 'orderby' => 'rand', ) );
-		while ( $loop->have_posts() ) : $loop->the_post();
-            $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
-			$CalendarEvents = $this->ReadCalendar( $loop->post->ID, $fechaFrom, $fechaTo );
-            if( $CalendarEvents ){
-                $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-			    $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-			    $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-            }
-		endwhile;
+        $fechaFrom = new DateTime();
+        $fechaTo = new DateTime();
+        $fechaTo->add( new DateInterval( 'P180D' ));
+        $MasterEvents = $this->ReadMasterCalendar( $fechaFrom, $fechaTo );
+        $loop = new WP_Query( array( 'post_type' => 'nicappcronocalendars' , 'posts_per_page' => 5000 , 'orderby' => 'rand', ) );
+        while ( $loop->have_posts() ) : $loop->the_post();
+        $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
+        $CalendarEvents = $this->ReadCalendar( $loop->post->ID, $fechaFrom, $fechaTo );
+        if( $CalendarEvents ){
+            $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+            $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+            $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+        }
+        endwhile;
         wp_reset_query();
-		$this->custom_logs( 'UpdateMasterCalendar End Cron Session' );
-		$this->custom_logs( '---' );
+        $this->custom_logs( 'UpdateMasterCalendar End Cron Session' );
+        $this->custom_logs( '---' );
     }
 	
 	/**
@@ -648,7 +648,7 @@ class Nicappcrono_Admin
      *            Array of events if calendar exists. Otherwise false.
      */
     private function ReadMasterCalendar( $fechaFrom, $fechaTo ){
-        if( strlen( get_option( 'nicappcrono_clientId' ) ) < 5 ) return false;
+        if( strlen( get_option( 'nicappcrono_clientId' ) ) < 25 ) return false;
         $params = array(
             "client_id" => get_option( 'nicappcrono_clientId' ),
             "client_secret" => get_option( 'nicappcrono_clientSecret' ),
@@ -688,6 +688,7 @@ class Nicappcrono_Admin
      *            Array of events if calendar exists. Otherwise false.
 	 */
 	private function ReadCalendar( $postID, $fechaFrom, $fechaTo ){
+	    if( strlen( get_option( 'nicappcrono_clientId' ) ) < 25 ) return false;
 	    if( strlen( get_post_meta ( $postID, $this->plugin_name.'_calendarID', true ) ) < 5 ) return false;
 		$params = array(
 	        "client_id" => get_option( 'nicappcrono_clientId' ),
@@ -980,10 +981,9 @@ class Nicappcrono_Admin
      */
     private function scheduledJob() {
         if ( wp_next_scheduled ( 'nicappcronoCronJob' )) {
-			date_default_timezone_set( get_option( 'timezone_string' ) );
-			$date_format = get_option('date_format');
+            $date_format = get_option('date_format');
             $time_format = get_option('time_format');
-            echo date("{$date_format} {$time_format}", wp_next_scheduled( 'nicappcronoCronJob' ) );
+            echo wp_date("{$date_format} {$time_format}", wp_next_scheduled( 'nicappcronoCronJob' ), get_option('timezone_string') );
         }else{
             _e( 'No scheduled jobs. No calendar entries will be checked.', 'nicappcrono' );
         }
