@@ -1,0 +1,236 @@
+#2020-08-28 00:05:39: nicappcronoMaintenance begins
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-28 00:05:39: Old logfile
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 00:05:39: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 00:05:39
+#2020-08-28 00:05:39: nicappcronoMaintenance ends
+#2020-08-28 00:05:39: ---
+#2020-08-28 00:05:39: UpdateMasterCalendar Start Cron Session
+#2020-08-28 00:05:40: Calendar $postID: 4997
+#2020-08-28 00:05:42: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 00:05:42: Calendar $postID: 4998
+#2020-08-28 00:05:44: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 00:05:44: UpdateMasterCalendar End Cron Session
+#2020-08-28 00:05:44: ---
+#2020-08-28 01:05:43: nicappcronoMaintenance begins
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 01:05:43: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 01:05:43
+#2020-08-28 01:05:43: nicappcronoMaintenance ends
+#2020-08-28 01:05:43: ---
+#2020-08-28 01:05:43: UpdateMasterCalendar Start Cron Session
+#2020-08-28 01:05:44: Calendar $postID: 4998
+#2020-08-28 01:05:46: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 01:05:46: Calendar $postID: 4997
+#2020-08-28 01:05:48: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 01:05:48: UpdateMasterCalendar End Cron Session
+#2020-08-28 01:05:48: ---
+#2020-08-28 02:06:15: nicappcronoMaintenance begins
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 02:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 02:06:15
+#2020-08-28 02:06:15: nicappcronoMaintenance ends
+#2020-08-28 02:06:15: ---
+#2020-08-28 02:06:15: UpdateMasterCalendar Start Cron Session
+#2020-08-28 02:06:16: Calendar $postID: 4998
+#2020-08-28 02:06:18: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 02:06:18: Calendar $postID: 4997
+#2020-08-28 02:06:20: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 02:06:20: UpdateMasterCalendar End Cron Session
+#2020-08-28 02:06:20: ---
+#2020-08-28 03:06:17: nicappcronoMaintenance begins
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 03:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 03:06:17
+#2020-08-28 03:06:17: nicappcronoMaintenance ends
+#2020-08-28 03:06:17: ---
+#2020-08-28 03:06:17: UpdateMasterCalendar Start Cron Session
+#2020-08-28 03:06:18: Calendar $postID: 4998
+#2020-08-28 03:06:20: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 03:06:20: Calendar $postID: 4997
+#2020-08-28 03:06:22: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 03:06:22: UpdateMasterCalendar End Cron Session
+#2020-08-28 03:06:22: ---
+#2020-08-28 04:06:15: nicappcronoMaintenance begins
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 04:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 04:06:15
+#2020-08-28 04:06:15: nicappcronoMaintenance ends
+#2020-08-28 04:06:15: ---
+#2020-08-28 04:06:15: UpdateMasterCalendar Start Cron Session
+#2020-08-28 04:06:16: Calendar $postID: 4998
+#2020-08-28 04:06:18: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 04:06:18: Calendar $postID: 4997
+#2020-08-28 04:06:20: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 04:06:20: UpdateMasterCalendar End Cron Session
+#2020-08-28 04:06:20: ---
+#2020-08-28 05:06:17: nicappcronoMaintenance begins
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 05:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 05:06:17
+#2020-08-28 05:06:17: nicappcronoMaintenance ends
+#2020-08-28 05:06:17: ---
+#2020-08-28 05:06:17: UpdateMasterCalendar Start Cron Session
+#2020-08-28 05:06:18: Calendar $postID: 4997
+#2020-08-28 05:06:20: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 05:06:20: Calendar $postID: 4998
+#2020-08-28 05:06:22: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 05:06:22: UpdateMasterCalendar End Cron Session
+#2020-08-28 05:06:22: ---
+#2020-08-28 06:06:16: nicappcronoMaintenance begins
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 06:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 06:06:16
+#2020-08-28 06:06:16: nicappcronoMaintenance ends
+#2020-08-28 06:06:16: ---
+#2020-08-28 06:06:16: UpdateMasterCalendar Start Cron Session
+#2020-08-28 06:06:17: Calendar $postID: 4998
+#2020-08-28 06:06:19: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 06:06:19: Calendar $postID: 4997
+#2020-08-28 06:06:20: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 06:06:20: UpdateMasterCalendar End Cron Session
+#2020-08-28 06:06:20: ---
+#2020-08-28 07:06:16: nicappcronoMaintenance begins
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 07:06:16: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 07:06:16
+#2020-08-28 07:06:16: nicappcronoMaintenance ends
+#2020-08-28 07:06:16: ---
+#2020-08-28 07:06:16: UpdateMasterCalendar Start Cron Session
+#2020-08-28 07:06:16: Calendar $postID: 4998
+#2020-08-28 07:06:18: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 07:06:18: Calendar $postID: 4997
+#2020-08-28 07:06:20: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 07:06:20: UpdateMasterCalendar End Cron Session
+#2020-08-28 07:06:20: ---
+#2020-08-28 08:06:17: nicappcronoMaintenance begins
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 08:06:17: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 08:06:17
+#2020-08-28 08:06:17: nicappcronoMaintenance ends
+#2020-08-28 08:06:17: ---
+#2020-08-28 08:06:17: UpdateMasterCalendar Start Cron Session
+#2020-08-28 08:06:17: Calendar $postID: 4997
+#2020-08-28 08:06:19: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 08:06:19: Calendar $postID: 4998
+#2020-08-28 08:06:21: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 08:06:21: UpdateMasterCalendar End Cron Session
+#2020-08-28 08:06:21: ---
+#2020-08-28 09:06:15: nicappcronoMaintenance begins
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 09:06:15: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 09:06:15
+#2020-08-28 09:06:15: nicappcronoMaintenance ends
+#2020-08-28 09:06:15: ---
+#2020-08-28 09:06:15: UpdateMasterCalendar Start Cron Session
+#2020-08-28 09:06:16: Calendar $postID: 4998
+#2020-08-28 09:06:18: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 09:06:18: Calendar $postID: 4997
+#2020-08-28 09:06:20: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 09:06:20: UpdateMasterCalendar End Cron Session
+#2020-08-28 09:06:20: ---
+#2020-08-28 10:06:05: nicappcronoMaintenance begins
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 10:06:05: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 10:06:05
+#2020-08-28 10:06:05: nicappcronoMaintenance ends
+#2020-08-28 10:06:05: ---
+#2020-08-28 10:06:05: UpdateMasterCalendar Start Cron Session
+#2020-08-28 10:06:06: Calendar $postID: 4997
+#2020-08-28 10:06:08: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 10:06:08: Calendar $postID: 4998
+#2020-08-28 10:06:09: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 10:06:09: UpdateMasterCalendar End Cron Session
+#2020-08-28 10:06:09: ---
+#2020-08-28 10:53:21: nicappcronoMaintenance begins
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 10:53:21: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 10:53:21
+#2020-08-28 10:53:21: nicappcronoMaintenance ends
+#2020-08-28 10:53:21: ---
+#2020-08-28 10:53:21: UpdateMasterCalendar Start Cron Session
+#2020-08-28 10:53:22: Calendar $postID: 4998
+#2020-08-28 10:53:24: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 10:53:24: Calendar $postID: 4997
+#2020-08-28 10:53:26: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 10:53:26: UpdateMasterCalendar End Cron Session
+#2020-08-28 10:53:26: ---
+#2020-08-28 11:06:25: nicappcronoMaintenance begins
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:09
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-25.log -> 25-08-2020 23:07:44
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-26.log -> 26-08-2020 23:20:11
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-27.log -> 27-08-2020 23:05:41
+#2020-08-28 11:06:25: Logfile: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-28.log -> 28-08-2020 11:06:25
+#2020-08-28 11:06:25: nicappcronoMaintenance ends
+#2020-08-28 11:06:25: ---
+#2020-08-28 11:06:25: UpdateMasterCalendar Start Cron Session
+#2020-08-28 11:06:25: Calendar $postID: 4998
+#2020-08-28 11:06:27: UpdateEvent event updated nicappcrono.4998.2020-09-11T10:00:00Z.2020-09-11T10:50:00Z
+#2020-08-28 11:06:27: Calendar $postID: 4997
+#2020-08-28 11:06:29: UpdateEvent event updated nicappcrono.4997.2020-09-12T10:00:00Z.2020-09-12T10:50:00Z
+#2020-08-28 11:06:29: UpdateMasterCalendar End Cron Session
+#2020-08-28 11:06:29: ---

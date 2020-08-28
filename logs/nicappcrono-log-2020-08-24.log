@@ -1,0 +1,288 @@
+#2020-08-24 00:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 00:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 00:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 00:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 00:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 00:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 00:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 00:20:04
+#2020-08-24 00:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 00:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 00:20:05: Calendario $postID: 4997
+#2020-08-24 00:20:07: Calendario $postID: 4998
+#2020-08-24 00:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 01:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 01:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 01:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 01:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 01:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 01:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 01:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 01:20:04
+#2020-08-24 01:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 01:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 01:20:05: Calendario $postID: 4997
+#2020-08-24 01:20:07: Calendario $postID: 4998
+#2020-08-24 01:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 02:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 02:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 02:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 02:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 02:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 02:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 02:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 02:20:04
+#2020-08-24 02:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 02:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 02:20:05: Calendario $postID: 4998
+#2020-08-24 02:20:07: Calendario $postID: 4997
+#2020-08-24 02:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 03:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 03:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 03:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 03:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 03:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 03:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 03:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 03:20:04
+#2020-08-24 03:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 03:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 03:20:05: Calendario $postID: 4997
+#2020-08-24 03:20:07: Calendario $postID: 4998
+#2020-08-24 03:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 04:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 04:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 04:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 04:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 04:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 04:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 04:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 04:20:04
+#2020-08-24 04:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 04:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 04:20:05: Calendario $postID: 4997
+#2020-08-24 04:20:07: Calendario $postID: 4998
+#2020-08-24 04:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 05:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 05:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 05:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 05:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 05:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 05:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 05:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 05:20:04
+#2020-08-24 05:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 05:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 05:20:05: Calendario $postID: 4998
+#2020-08-24 05:20:07: Calendario $postID: 4997
+#2020-08-24 05:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 06:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 06:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 06:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 06:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 06:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 06:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 06:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 06:20:04
+#2020-08-24 06:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 06:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 06:20:05: Calendario $postID: 4998
+#2020-08-24 06:20:07: Calendario $postID: 4997
+#2020-08-24 06:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 07:07:37: Empieza nicappcronoMaintenance
+#2020-08-24 07:07:37: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 07:07:37: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 07:07:37: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 07:07:37: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 07:07:37: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 07:07:37: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 07:07:37
+#2020-08-24 07:07:37: Finaliza nicappcronoMaintenance
+#2020-08-24 07:07:37: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 07:07:38: Calendario $postID: 4997
+#2020-08-24 07:07:40: Calendario $postID: 4998
+#2020-08-24 07:07:42: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 08:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 08:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 08:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 08:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 08:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 08:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 08:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 08:20:04
+#2020-08-24 08:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 08:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 08:20:05: Calendario $postID: 4997
+#2020-08-24 08:20:07: Calendario $postID: 4998
+#2020-08-24 08:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 09:08:48: Empieza nicappcronoMaintenance
+#2020-08-24 09:08:48: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 09:08:48: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 09:08:48: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 09:08:48: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 09:08:48: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 09:08:48: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 09:08:48
+#2020-08-24 09:08:48: Finaliza nicappcronoMaintenance
+#2020-08-24 09:08:48: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 09:08:49: Calendario $postID: 4998
+#2020-08-24 09:08:51: Calendario $postID: 4997
+#2020-08-24 09:08:53: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 10:07:22: Empieza nicappcronoMaintenance
+#2020-08-24 10:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 10:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 10:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 10:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 10:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 10:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 10:07:22
+#2020-08-24 10:07:22: Finaliza nicappcronoMaintenance
+#2020-08-24 10:07:22: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 10:07:23: Calendario $postID: 4997
+#2020-08-24 10:07:25: Calendario $postID: 4998
+#2020-08-24 10:07:27: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 11:07:23: Empieza nicappcronoMaintenance
+#2020-08-24 11:07:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 11:07:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 11:07:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 11:07:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 11:07:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 11:07:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 11:07:23
+#2020-08-24 11:07:23: Finaliza nicappcronoMaintenance
+#2020-08-24 11:07:23: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 11:07:24: Calendario $postID: 4998
+#2020-08-24 11:07:26: Calendario $postID: 4997
+#2020-08-24 11:07:28: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 12:07:22: Empieza nicappcronoMaintenance
+#2020-08-24 12:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 12:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 12:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 12:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 12:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 12:07:22: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 12:07:22
+#2020-08-24 12:07:22: Finaliza nicappcronoMaintenance
+#2020-08-24 12:07:22: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 12:07:23: Calendario $postID: 4997
+#2020-08-24 12:07:25: Calendario $postID: 4998
+#2020-08-24 12:07:27: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 13:07:26: Empieza nicappcronoMaintenance
+#2020-08-24 13:07:26: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 13:07:26: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 13:07:26: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 13:07:26: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 13:07:26: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 13:07:26: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 13:07:26
+#2020-08-24 13:07:26: Finaliza nicappcronoMaintenance
+#2020-08-24 13:07:26: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 13:07:27: Calendario $postID: 4998
+#2020-08-24 13:07:29: Calendario $postID: 4997
+#2020-08-24 13:07:31: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 14:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 14:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 14:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 14:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 14:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 14:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 14:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 14:20:04
+#2020-08-24 14:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 14:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 14:20:05: Calendario $postID: 4997
+#2020-08-24 14:20:08: Calendario $postID: 4998
+#2020-08-24 14:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 15:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 15:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 15:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 15:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 15:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 15:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 15:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 15:20:04
+#2020-08-24 15:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 15:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 15:20:05: Calendario $postID: 4998
+#2020-08-24 15:20:07: Calendario $postID: 4997
+#2020-08-24 15:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 16:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 16:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 16:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 16:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 16:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 16:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 16:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 16:20:04
+#2020-08-24 16:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 16:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 16:20:05: Calendario $postID: 4998
+#2020-08-24 16:20:07: Calendario $postID: 4997
+#2020-08-24 16:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 17:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 17:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 17:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 17:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 17:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 17:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 17:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 17:20:04
+#2020-08-24 17:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 17:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 17:20:05: Calendario $postID: 4998
+#2020-08-24 17:20:07: Calendario $postID: 4997
+#2020-08-24 17:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 18:09:23: Empieza nicappcronoMaintenance
+#2020-08-24 18:09:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 18:09:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 18:09:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 18:09:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 18:09:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 18:09:23: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 18:09:23
+#2020-08-24 18:09:23: Finaliza nicappcronoMaintenance
+#2020-08-24 18:09:23: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 18:09:24: Calendario $postID: 4997
+#2020-08-24 18:09:26: Calendario $postID: 4998
+#2020-08-24 18:09:28: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 19:20:05: Empieza nicappcronoMaintenance
+#2020-08-24 19:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 19:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 19:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 19:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 19:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 19:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 19:20:05
+#2020-08-24 19:20:05: Finaliza nicappcronoMaintenance
+#2020-08-24 19:20:05: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 19:20:06: Calendario $postID: 4997
+#2020-08-24 19:20:08: Calendario $postID: 4998
+#2020-08-24 19:20:10: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 20:20:05: Empieza nicappcronoMaintenance
+#2020-08-24 20:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 20:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 20:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 20:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 20:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 20:20:05: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 20:20:05
+#2020-08-24 20:20:05: Finaliza nicappcronoMaintenance
+#2020-08-24 20:20:05: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 20:20:06: Calendario $postID: 4998
+#2020-08-24 20:20:08: Calendario $postID: 4997
+#2020-08-24 20:20:10: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 21:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 21:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 21:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 21:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 21:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 21:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 21:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 21:20:04
+#2020-08-24 21:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 21:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 21:20:05: Calendario $postID: 4997
+#2020-08-24 21:20:07: Calendario $postID: 4998
+#2020-08-24 21:20:08: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 22:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 22:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 22:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 22:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 22:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 22:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 22:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 22:20:04
+#2020-08-24 22:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 22:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 22:20:05: Calendario $postID: 4997
+#2020-08-24 22:20:07: Calendario $postID: 4998
+#2020-08-24 22:20:09: Finaliza sesion cron UpdateMasterCalendar
+#2020-08-24 23:20:04: Empieza nicappcronoMaintenance
+#2020-08-24 23:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-19.log -> 19-08-2020 23:05:44
+#2020-08-24 23:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-20.log -> 20-08-2020 23:20:07
+#2020-08-24 23:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-21.log -> 21-08-2020 23:07:13
+#2020-08-24 23:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-22.log -> 22-08-2020 23:17:56
+#2020-08-24 23:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-23.log -> 23-08-2020 23:20:09
+#2020-08-24 23:20:04: Fichero log: /var/www/nic-www.com/datos/web/wp-content/plugins/nicappcrono/logs/nicappcrono-log-2020-08-24.log -> 24-08-2020 23:20:04
+#2020-08-24 23:20:04: Finaliza nicappcronoMaintenance
+#2020-08-24 23:20:04: Empieza sesion cron UpdateMasterCalendar
+#2020-08-24 23:20:05: Calendario $postID: 4997
+#2020-08-24 23:20:07: Calendario $postID: 4998
+#2020-08-24 23:20:09: Finaliza sesion cron UpdateMasterCalendar

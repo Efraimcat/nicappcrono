@@ -1,0 +1,8 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.nicappcrono-send-calendar input {
+	margin: 5px;
+	padding: 0px 10px 0 10px;
+}

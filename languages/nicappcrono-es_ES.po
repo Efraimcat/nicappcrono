@@ -1,0 +1,390 @@
+# Copyright (C) 2020 Efraim Bayarri
+# This file is distributed under the same license as the Nic-app Crono plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Nic-app Crono 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nicappcrono\n"
+"POT-Creation-Date: 2020-08-28T11:38:22+02:00\n"
+"PO-Revision-Date: 2020-08-28 11:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Domain: nicappcrono\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+msgid "Nic-app Crono"
+msgstr "Nic-app Crono"
+
+#. Plugin URI of the plugin
+msgid "https://nic-app.com/nic-app-crono/"
+msgstr "https://nic-app.com/nic-app-crono/"
+
+#. Description of the plugin
+#: admin/partials/nicappcrono-admin-display.php:25
+msgid ""
+"Nic-app Crono is a plugin that allows you to unify different calendars "
+"(Google Calendar, Apple iCloud, Exchange, Office 365 / Outlook) into a "
+"single calendar."
+msgstr ""
+"Nic-app Crono es un plugin que te permite unificar diferentes calendarios "
+"(Google Calendar, Apple iCloud, Exchange, Office 365/Outlook) en un solo "
+"calendario."
+
+#. Author of the plugin
+msgid "Efraim Bayarri"
+msgstr "Efraim Bayarri"
+
+#. Author URI of the plugin
+msgid "https://efraim.cat"
+msgstr "https://efraim.cat"
+
+#: admin/class-nicappcrono-admin.php:118 admin/class-nicappcrono-admin.php:135
+msgid "Nic-app Crono Calendars"
+msgstr "Calendarios Nic-app Crono"
+
+#: admin/class-nicappcrono-admin.php:121 admin/class-nicappcrono-admin.php:131
+#: admin/class-nicappcrono-admin.php:132
+#: public/class-nicappcrono-public.php:183
+msgid "Calendars"
+msgstr "Calendarios"
+
+#: admin/class-nicappcrono-admin.php:122
+msgid "Calendar"
+msgstr "Calendario"
+
+#: admin/class-nicappcrono-admin.php:123
+msgid "Add Calendar"
+msgstr "Añadir calendario"
+
+#: admin/class-nicappcrono-admin.php:124
+msgid "Add New Calendar"
+msgstr "Añadir nuevo calendario"
+
+#: admin/class-nicappcrono-admin.php:125
+msgid "Edit Calendar"
+msgstr "Editar calendario"
+
+#: admin/class-nicappcrono-admin.php:126
+msgid "New Calendar"
+msgstr "Nuevo calendario"
+
+#: admin/class-nicappcrono-admin.php:127
+msgid "View Calendar"
+msgstr "Ver calendario"
+
+#: admin/class-nicappcrono-admin.php:128
+msgid "Search Calendar"
+msgstr "Buscar calendario"
+
+#: admin/class-nicappcrono-admin.php:129
+msgid "No Calendars Found"
+msgstr "No se encontraron calendarios"
+
+#: admin/class-nicappcrono-admin.php:130
+msgid "No Calendarss Found in Trash"
+msgstr "No se encontraron calendarios en la papelera"
+
+#: admin/class-nicappcrono-admin.php:159
+#: admin/partials/nicappcrono-admin-display.php:21
+#: admin/partials/nicappcrono-admin-settings-display.php:17
+msgid "Nic-app Crono Settings"
+msgstr "Ajustes Nic-app Crono"
+
+#: admin/class-nicappcrono-admin.php:159 admin/class-nicappcrono-admin.php:1052
+msgid "Settings"
+msgstr "Ajustes"
+
+#: admin/class-nicappcrono-admin.php:160
+#: admin/partials/nicappcrono-admin-scheduling-display.php:17
+msgid "Nic-app Crono Scheduling"
+msgstr "Planificación Nic-app Crono"
+
+#: admin/class-nicappcrono-admin.php:160
+msgid "Scheduling"
+msgstr "Planificación"
+
+#: admin/class-nicappcrono-admin.php:161
+#: admin/partials/nicappcrono-admin-support-display.php:21
+msgid "Nic-app Crono Support"
+msgstr "Soporte Nic-app Crono"
+
+#: admin/class-nicappcrono-admin.php:161
+msgid "Support"
+msgstr "Soporte"
+
+#: admin/class-nicappcrono-admin.php:197
+msgid "Calendar information"
+msgstr "Información calendarios"
+
+#: admin/class-nicappcrono-admin.php:216 admin/class-nicappcrono-admin.php:552
+msgid "Calendar ID"
+msgstr "ID calendario"
+
+#: admin/class-nicappcrono-admin.php:222
+msgid "Calendar Name"
+msgstr "Nombre calendario"
+
+#: admin/class-nicappcrono-admin.php:228
+msgid "Access Token"
+msgstr "Access Token"
+
+#: admin/class-nicappcrono-admin.php:234
+msgid "Refresh Token"
+msgstr "Refresh Token"
+
+#: admin/class-nicappcrono-admin.php:240
+msgid "Profile Name"
+msgstr "Nombre del perfil"
+
+#: admin/class-nicappcrono-admin.php:246
+msgid "Profile ID"
+msgstr "ID perfil"
+
+#: admin/class-nicappcrono-admin.php:252
+msgid "Provider ID"
+msgstr "ID proveedor"
+
+#: admin/class-nicappcrono-admin.php:258
+msgid ""
+"Check if you want product number to be displayed in calendar instead of "
+"content"
+msgstr ""
+"Marca si deseas que se muestre el número de producto en el calendario en "
+"lugar del contenido"
+
+#: admin/class-nicappcrono-admin.php:262
+msgid "Product Display"
+msgstr "Mostrar producto"
+
+#: admin/class-nicappcrono-admin.php:268 admin/class-nicappcrono-admin.php:554
+msgid "Product ID"
+msgstr "ID producto"
+
+#: admin/class-nicappcrono-admin.php:275
+msgid "Notes"
+msgstr "Anotaciones"
+
+#: admin/class-nicappcrono-admin.php:450
+msgid ""
+"There was an error adding this setting. Please try again.  If this persists, "
+"shoot us an email."
+msgstr ""
+"Hubo un error al agregar esta configuración. Inténtalo de nuevo. Si esto "
+"persiste, envíanos un correo electrónico."
+
+#: admin/class-nicappcrono-admin.php:480
+msgid "Use European Data Center"
+msgstr "Utilizar el centro de datos europeo"
+
+#: admin/class-nicappcrono-admin.php:483
+msgid "Client ID"
+msgstr "ID cliente"
+
+#: admin/class-nicappcrono-admin.php:486
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#: admin/class-nicappcrono-admin.php:489
+msgid "Master Calendar"
+msgstr "Calendario maestro"
+
+#: admin/class-nicappcrono-admin.php:492
+msgid "Master Access Token"
+msgstr "Access Token maestro"
+
+#: admin/class-nicappcrono-admin.php:495
+msgid "Master Refresh Token"
+msgstr "Refresh Token maestro"
+
+#: admin/class-nicappcrono-admin.php:498
+msgid "Authorization Page ID"
+msgstr "ID página autorización"
+
+#: admin/class-nicappcrono-admin.php:501
+msgid "Create new Authorization Page"
+msgstr "Crear nueva página de autorización"
+
+#: admin/class-nicappcrono-admin.php:524
+msgid ""
+"These settings refer to your Cronofy account for master calendar an apply to "
+"all Nic-app Crono functionality."
+msgstr ""
+"Estas configuraciones se refieren a tu cuenta de Cronofy para el calendario "
+"maestro y se aplican a todas las funciones de Nic-app Crono."
+
+#: admin/class-nicappcrono-admin.php:526
+msgid ""
+"Cronofy currently provides two data centers one in the USA, the default, and "
+"one in Germany. They are run as completely separate instances with no data "
+"flow between. This allows you to ensure data is kept within jurisdictional "
+"boundaries, eg. the EEA."
+msgstr ""
+"Actualmente, Cronofy ofrece dos centros de datos, uno en EE. UU., el "
+"predeterminado, y otro en Alemania. Se ejecutan como instancias "
+"completamente independientes sin flujo de datos entre ellas. Esto le permite "
+"asegurarse de que los datos se mantengan dentro de los límites "
+"jurisdiccionales, por ejemplo. el EEE."
+
+#: admin/class-nicappcrono-admin.php:528
+msgid ""
+"Because there is no data flow then separate developer accounts need to be "
+"created on the instance that suits your requirements. Functionally the APIs "
+"are identical."
+msgstr ""
+"Debido a que no hay flujo de datos, es necesario crear cuentas de "
+"desarrollador independientes en la instancia que se adapte a sus requisitos. "
+"Funcionalmente, las API son idénticas."
+
+#: admin/class-nicappcrono-admin.php:551
+msgid "Title"
+msgstr "Título"
+
+#: admin/class-nicappcrono-admin.php:553
+msgid "Product display"
+msgstr "Mostrar producto"
+
+#: admin/class-nicappcrono-admin.php:555
+msgid "Date"
+msgstr "Fecha"
+
+#: admin/class-nicappcrono-admin.php:572
+msgid "Yes"
+msgstr "Si"
+
+#: admin/class-nicappcrono-admin.php:572
+msgid "No"
+msgstr "No"
+
+#: admin/class-nicappcrono-admin.php:595
+msgid "Authorization"
+msgstr "Autorización"
+
+#: admin/class-nicappcrono-admin.php:744
+msgid "calendar entry."
+msgstr "entrada calendario."
+
+#: admin/class-nicappcrono-admin.php:988
+msgid "No scheduled jobs. No calendar entries will be checked."
+msgstr ""
+"No hay trabajos programados. No se comprobarán las entradas del calendario."
+
+#: admin/class-nicappcrono-admin.php:1015
+msgid "View log file"
+msgstr "Ver fichero log"
+
+#: admin/partials/nicappcrono-admin-display.php:26
+msgid ""
+"Plugins developed for WordPress and WooCommerce usually work by connecting "
+"to a single calendar. What happens if you need information contained in more "
+"than one calendar?"
+msgstr ""
+"Los plugins desarrollados para WordPress y WooCommerce suelen trabajar "
+"conectándose a un único calendario ¿Que sucede si necesitas información "
+"contenida en más de un solo calendario?"
+
+#: admin/partials/nicappcrono-admin-display.php:27
+msgid ""
+"With this plugin with the help of Cronofy you can solve this problem, "
+"keeping information from multiple sources in a single calendar."
+msgstr ""
+"Con este plugin con la ayuda de Cronofy puedes solucionar este problema, "
+"manteniendo la información de múltiples fuentes en un solo calendario."
+
+#: admin/partials/nicappcrono-admin-display.php:29
+msgid ""
+"Configuration is an important part of proper operation and must be given the "
+"necessary attention. You can find all the necessary help in"
+msgstr ""
+"La configuración es una parte importante para el correcto funcionamiento y "
+"ha que prestarle la atención necesaria. Podéis encontrar toda la ayuda "
+"necesaria en la"
+
+#: admin/partials/nicappcrono-admin-display.php:30
+msgid "the support tab"
+msgstr "pestaña de soporte"
+
+#: admin/partials/nicappcrono-admin-display.php:30
+msgid "or in"
+msgstr "ó en"
+
+#: admin/partials/nicappcrono-admin-display.php:31
+msgid "Nic-app Crono web page"
+msgstr "la página web de Nic-app Crono"
+
+#: admin/partials/nicappcrono-admin-display.php:35
+#: admin/partials/nicappcrono-admin-support-display.php:23
+msgid "Contact us"
+msgstr "Contacta-nos"
+
+#: admin/partials/nicappcrono-admin-display.php:35
+#: admin/partials/nicappcrono-admin-support-display.php:23
+msgid "with any questions."
+msgstr "con cualquier pregunta."
+
+#: admin/partials/nicappcrono-admin-scheduling-display.php:20
+msgid "Next schedule: "
+msgstr "Próximo horario: "
+
+#: admin/partials/nicappcrono-admin-scheduling-display.php:25
+msgid "Log files: "
+msgstr "Log files: "
+
+#: admin/partials/nicappcrono-admin-settings-display.php:24
+msgid ""
+"When creating the developer account in the chosen data center and later when "
+"creating our app, we already authorize the use of the master calendar. To "
+"authorize the following calendars, it is necessary to define a page from "
+"which to carry out this authorization."
+msgstr ""
+"Al crear la cuenta de desarrollador en el data center elegido y "
+"posteriormente al crear nuestra app ya autorizamos el uso del calendario "
+"master. Para autorizar los siguientes calendarios es necesario definir una "
+"página desde donde realizar esta autorización."
+
+#: admin/partials/nicappcrono-admin-settings-display.php:25
+msgid ""
+"It can be any page that contains the shortcode [NicappAuth]. In that case we "
+"will simply enter the ID of the page. We can create a new page with the "
+"shortcode in it if we check the option to create a new page."
+msgstr ""
+"Puede ser una página cualquiera que contenga el shortcode [NicappAuth]. En "
+"ese caso simplemente introduciremos el ID de la página. Podemos crear una "
+"nueva página con el shortcode en ella si marcamos la opción crear nueva "
+"página."
+
+#: public/class-nicappcrono-public.php:136
+msgid "Authorization Processed"
+msgstr "Autorización procesada"
+
+#: public/class-nicappcrono-public.php:137
+msgid "Thank you for authorizing access to your calendar."
+msgstr "Gracias por autorizar el acceso a tu calendario."
+
+#: public/class-nicappcrono-public.php:138
+msgid "Your calendar was already authorized."
+msgstr "Tu calendario ya estaba autorizado."
+
+#: public/class-nicappcrono-public.php:139
+msgid "Your inputs have been saved."
+msgstr "Entradas guardadas."
+
+#: public/class-nicappcrono-public.php:184
+msgid "Please choose the calendar you wish to share"
+msgstr "Elige el calendario que deseas compartir"
+
+#: public/class-nicappcrono-public.php:206
+msgid "Send"
+msgstr "Enviar"
+
+#~ msgid ""
+#~ "This is a short description of what the plugin does. It's displayed in "
+#~ "the WordPress admin area."
+#~ msgstr ""
+#~ "Nic-app Crono es un plugin que te permite unificar diferentes calendarios "
+#~ "(Google Calendar, Apple iCloud, Exchange, Office 365/Outlook) en un solo "
+#~ "calendario."
