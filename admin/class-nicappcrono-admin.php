@@ -609,6 +609,7 @@ class Nicappcrono_Admin
                 $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
                 $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
                 $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+                $this->UpdateExternalEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
             }
         endwhile;
         wp_reset_query();
@@ -716,13 +717,14 @@ class Nicappcrono_Admin
                     if( $masterevent['start'] == $event['start'] && $masterevent['end'] == $event['end'] && $eventInfo['4'] == $event['event_uid'] ) $eventExists = true;
                 }
                 if( !$eventExists ){
-                    $this->CreateEvent( array(
+                    $this->UpdateEvent( array(
                         "start" => $event['start'],
                         "end" => $event['end'],
                         "event_uid" => $event['event_uid'],
                         "postID" => $postID,
                         "summary" => $event['summary'],
-                        "description" => $event['description']
+                        "description" => $event['description'],
+                        "action" => 'create'
                     ) );
                 }
             }
@@ -758,7 +760,8 @@ class Nicappcrono_Admin
                             "event_uid" => $calendarevent['event_uid'],
                             "postID" => $postID,
                             "summary" => $calendarevent['summary'],
-                            "description" => $calendarevent['description']
+                            "description" => $calendarevent['description'],
+                            "action" => 'update'
                         ) );
                     }
                 }
@@ -794,79 +797,21 @@ class Nicappcrono_Admin
     }
 	
     /**
-     * Create new Master calendar entry
-     * 
-     * @since  1.0.0
+     * Update external calendar entry.
+     *
+     * @since    1.0.0
      * @access private
-     * @param array $args
-     * @return bool success
-     * 
+     * @param string $postID
+     *
+     * @param array $MasterEvents
+     *
+     * @param array $CalendarEvents
+     *
      */
-    private function CreateEvent( $args ){
-        if ( !empty( $args["start"] ) ) {
-            $start = $args["start"];
-        }else{
-            return false;
-        }
-        if ( !empty( $args["end"] ) ) {
-            $end = $args["end"];
-        }else{
-            return false;
-        }
-        if ( !empty( $args["event_uid"] ) ) {
-            $event_uid = $args["event_uid"];
-        }else{
-            return false;
-        }
-        if ( !empty( $args["postID"] ) ) {
-            $postID = $args["postID"];
-        }else{
-            return false;
-        }
-        if ( !empty( $args["summary"] ) ) {
-            $summary = $args["summary"];
-        }else{
-            $summary = $postID . __( 'calendar entry.', 'nicappcrono' );
-        }
-        if ( !empty( $args["description"] ) ) {
-            $description = $args["description"];
-        }else{
-            $description = '';
-        }
-        /*
-         * Event identifier.
-         */
-        $eventID = 'nicappcrono.' . $postID . '.' . $start . '.' . $end . '.' . $event_uid ;
-        /*
-         * If calendar is defined to be linked to a woocommerce product, change summary to product id.
-         * 
-         * Compatible with PluginHive "Bookings and Appointments For WooCommerce".
-         *  
-         */
-        get_post_meta( $postID , $this->plugin_name.'_Product_Display' , true ) ? $summary = get_post_meta( $postID, $this->plugin_name.'_Product_Id', true ) : $summary = $summary ; 
-	    
-        $params = array(
-            "client_id" => get_option( 'nicappcrono_clientId' ),
-            "client_secret" => get_option( 'nicappcrono_clientSecret' ),
-            "access_token" => get_option( 'nicappcrono_masterAccessToken' ),
-            "refresh_token" => get_option( 'nicappcrono_masterRefreshToken' ),
-        );
-        if( get_option( 'nicappcrono_DataCenter' ) ) $params["data_center"] = 'de';
-        $mastercronofy = new Cronofy( $params );
-        $mastercronofy->refresh_token();
-        $mastercronofy->upsert_event( array(
-            "calendar_id" => get_option( 'nicappcrono_masterCalendar' ),
-            "event_id"	=> $eventID,
-            "summary" => $summary,
-            "description" => $description,
-            "start" => $start, 
-            "end" => $end, 
-            "tzid" => "Etc/UTC",
-        ) );
-        $this->custom_logs( 'CreateEvent event created ' . $eventID );
-        return true;
+    private function UpdateExternalEvents( $postID, $MasterEvents, $CalendarEvents ){
+        
     }
-	
+    
     /**
      * Update Master calendar entry
      *
@@ -881,10 +826,20 @@ class Nicappcrono_Admin
         if ( empty( $args["end"] ) ) return false;
         if ( empty( $args["event_uid"] ) ) return false;
         if ( empty( $args["postID"] ) ) return false;
+        $summary = $args["summary"];
+        if ( $args["action"] == 'create' ){
+            /*
+             * If calendar is defined to be linked to a woocommerce product, change summary to product id on event creation.
+             *
+             * Compatible with PluginHive "Bookings and Appointments For WooCommerce".
+             *
+             */
+            get_post_meta( $args["postID"] , $this->plugin_name.'_Product_Display' , true ) ? $summary = get_post_meta( $args["postID"], $this->plugin_name.'_Product_Id', true ) : $summary = $args["summary"] ;
+        }
         /*
          * Event identifier.
          */
-        $eventID = 'nicappcrono.' . $args['postID'] . '.' . $args['start'] . '.' . $args['end'] . '.' .$args['event_uid'];
+        $eventID = 'nicappcrono.' . $args['postID'] . '.' . $args['start'] . '.' . $args['end'] . '.' . $args['event_uid'];
 	    
         $params = array(
             "client_id" => get_option( 'nicappcrono_clientId' ),
@@ -898,13 +853,13 @@ class Nicappcrono_Admin
         $mastercronofy->upsert_event( array(
             "calendar_id" => get_option( 'nicappcrono_masterCalendar' ),
             "event_id"	=> $eventID,
-            "summary" => $args['summary'],
+            "summary" => $summary,
             "description" => $args['description'],
             "start" => $args['start'],
             "end" => $args['end'],
             "tzid" => "Etc/UTC",
         ) );
-        $this->custom_logs( 'UpdateEvent event updated ' . $eventID );
+        ( $args["action"] == 'create') ? $this->custom_logs( 'UpdateEvent event created ' . $eventID ) : $this->custom_logs( 'UpdateEvent event updated ' . $eventID ) ;
         return true;
     }
 	
