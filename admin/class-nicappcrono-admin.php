@@ -252,7 +252,7 @@ class Nicappcrono_Admin
         echo '</li>';
 //
         echo '<li><hr/>';
-        _e('Check if you want product number to be displayed in calendar instead of content','nicappcrono');
+        _e('Check if you want product number to be displayed in calendar instead of content', 'nicappcrono');
         echo '</li>';
 //
         echo '<li><label for="'.$this->plugin_name.'_Product_Display">';
@@ -265,6 +265,14 @@ class Nicappcrono_Admin
         _e( 'Product ID', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_Product_Id','name'=>$this->plugin_name.'_Product_Id','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID,'size'=>'6'));
+        echo '</li><hr/>';
+//        
+        echo '<li>';
+        _e('Check if you want two way synchronization when new order is added to calendar. (Requires Pluginhive WooCommerce Bookings and Appointments Premium plugin).', 'nicappcrono');
+        echo '</li><li><label for="'.$this->plugin_name.'_TwoWay">';
+        _e( 'Two Way Synchronization', 'nicappcrono' );
+        echo '</label> ';
+        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'checkbox','id'=>$this->plugin_name.'_TwoWay','name'=>$this->plugin_name.'_TwoWay','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID));
         echo '</li><hr/>';
 // provide textarea name for $_POST variable
         $notes = get_post_meta( $post->ID, $this->plugin_name.'_notes', true );
@@ -346,27 +354,29 @@ class Nicappcrono_Admin
         }
         /* OK, it's safe for us to save the data now. */
         // Sanitize user input.
-        $calendarID = sanitize_text_field( $_POST[$this->plugin_name."_calendarID"]);
-        $calendarName = sanitize_text_field( $_POST[$this->plugin_name."_calendarName"]);
-        $AccessToken = sanitize_text_field( $_POST[$this->plugin_name."_AccessToken"]);
-        $RefreshToken = sanitize_text_field( $_POST[$this->plugin_name."_RefreshToken"]);
-        $ProfileName = sanitize_text_field( $_POST[$this->plugin_name."_ProfileName"]);
-        $ProfileID = sanitize_text_field( $_POST[$this->plugin_name."_ProfileID"]);
-        $ProviderID = sanitize_text_field( $_POST[$this->plugin_name."_ProviderID"]);
-        $Product_Display = sanitize_text_field( $_POST[$this->plugin_name."_Product_Display"]);
-        $Product_Id = sanitize_text_field( $_POST[$this->plugin_name."_Product_Id"]);
-        $notes = wp_kses_post( $_POST[$this->plugin_name."_notes"]);
+        $calendarID = sanitize_text_field( $_POST[$this->plugin_name."_calendarID"] );
+        $calendarName = sanitize_text_field( $_POST[$this->plugin_name."_calendarName"] );
+        $AccessToken = sanitize_text_field( $_POST[$this->plugin_name."_AccessToken"] );
+        $RefreshToken = sanitize_text_field( $_POST[$this->plugin_name."_RefreshToken"] );
+        $ProfileName = sanitize_text_field( $_POST[$this->plugin_name."_ProfileName"] );
+        $ProfileID = sanitize_text_field( $_POST[$this->plugin_name."_ProfileID"] );
+        $ProviderID = sanitize_text_field( $_POST[$this->plugin_name."_ProviderID"] );
+        $Product_Display = sanitize_text_field( $_POST[$this->plugin_name."_Product_Display"] );
+        $Product_Id = sanitize_text_field( $_POST[$this->plugin_name."_Product_Id"] );
+        $TwoWay = sanitize_text_field( $_POST[$this->plugin_name."_TwoWay"] );
+        $notes = wp_kses_post( $_POST[$this->plugin_name."_notes"] );
         
-        update_post_meta($post_id, $this->plugin_name.'_calendarID',$calendarID);
-        update_post_meta($post_id, $this->plugin_name.'_calendarName',$calendarName);
-        update_post_meta($post_id, $this->plugin_name.'_AccessToken',$AccessToken);
-        update_post_meta($post_id, $this->plugin_name.'_RefreshToken',$RefreshToken);
-        update_post_meta($post_id, $this->plugin_name.'_ProfileName',$ProfileName);
-        update_post_meta($post_id, $this->plugin_name.'_ProfileID',$ProfileID);
-        update_post_meta($post_id, $this->plugin_name.'_ProviderID',$ProviderID);
-        update_post_meta($post_id, $this->plugin_name.'_Product_Display',$Product_Display);
-        update_post_meta($post_id, $this->plugin_name.'_Product_Id',$Product_Id);
-        update_post_meta($post_id, $this->plugin_name.'_notes',$notes);
+        update_post_meta( $post_id, $this->plugin_name.'_calendarID', $calendarID );
+        update_post_meta( $post_id, $this->plugin_name.'_calendarName', $calendarName );
+        update_post_meta( $post_id, $this->plugin_name.'_AccessToken', $AccessToken );
+        update_post_meta( $post_id, $this->plugin_name.'_RefreshToken', $RefreshToken );
+        update_post_meta( $post_id, $this->plugin_name.'_ProfileName', $ProfileName );
+        update_post_meta( $post_id, $this->plugin_name.'_ProfileID', $ProfileID );
+        update_post_meta( $post_id, $this->plugin_name.'_ProviderID', $ProviderID );
+        update_post_meta( $post_id, $this->plugin_name.'_Product_Display', $Product_Display );
+        update_post_meta( $post_id, $this->plugin_name.'_Product_Id', $Product_Id );
+        update_post_meta( $post_id, $this->plugin_name.'_TwoWay', $TwoWay );
+        update_post_meta( $post_id, $this->plugin_name.'_notes', $notes );
     }
     
     /**
@@ -532,6 +542,7 @@ class Nicappcrono_Admin
             'title' => __('Title', 'nicappcrono'),
             'calendarID' => __('Calendar ID', 'nicappcrono'),
             'Product_Display' => __('Product display', 'nicappcrono'),
+            'TwoWay' => __('Two Way', 'nicappcrono'),
             'Product_Id' =>__( 'Product ID', 'nicappcrono'),
             'date' =>__( 'Date', 'nicappcrono')
         );
@@ -549,6 +560,9 @@ class Nicappcrono_Admin
      */
     public function fill_custom_post_type_columns( $column, $postID ) {
         switch ( $column ) {
+            case 'TwoWay' :
+                (get_post_meta( $postID , $this->plugin_name.'_TwoWay' , true )) ? _e('Yes', 'nicappcrono') : _e('No', 'nicappcrono');
+                break;
             case 'Product_Display' :
                 (get_post_meta( $postID , $this->plugin_name.'_Product_Display' , true )) ? _e('Yes', 'nicappcrono') : _e('No', 'nicappcrono');
                 break;
@@ -809,7 +823,23 @@ class Nicappcrono_Admin
      *
      */
     private function UpdateExternalEvents( $postID, $MasterEvents, $CalendarEvents ){
-        
+        if( !get_post_meta( $postID , $this->plugin_name.'_Product_Display' , true ) ) return;
+        if( !get_post_meta( $postID , $this->plugin_name.'_TwoWay' , true ) ) return;
+        if( !CheckPhive() ) return;
+        foreach ( $MasterEvents as $masterevent ){
+            if( strpos( $masterevent['summary'] , 'Order:' ) !== false ){
+                $FinPedido = strpos( $masterevent['summary'] , ',');
+                $pedido = substr( $masterevent['summary'] , 8 , ( $FinPedido - 8 ) ) ;
+                $order = wc_get_order( $pedido );
+                if( $order !== false ) {
+                    foreach( $order->get_items() as $item ){
+                        if( get_post_meta( $postID , $this->plugin_name.'_Product_Id' , true ) == $item->get_product_id() ){
+                        
+                        }
+                    }
+                }
+            }
+        }
     }
     
     /**
@@ -920,7 +950,7 @@ class Nicappcrono_Admin
      *
      * @since    1.0.0
      * @access private
-     * @param string|array $message
+     * @param void
      *
      */
     private function scheduledJob() {
@@ -938,7 +968,7 @@ class Nicappcrono_Admin
      *
      * @since    1.0.0
      * @access private
-     * @param string|array $message
+     * @param void
      *
      */
     private function logFiles() {
@@ -967,7 +997,7 @@ class Nicappcrono_Admin
      *
      * @since    1.0.0
      * @access private
-     * @param string|array $message
+     * @param void
      *
      */
     private function ShowLogFile(){
@@ -995,6 +1025,23 @@ class Nicappcrono_Admin
             admin_url( 'admin.php?page=nicappcrono' ) .
             '">' . _e('Settings', 'nicappcrono') . '</a>';
             return $links;
+    }
+    
+    /**
+     * Check if pluginhive is active.
+     *
+     * @since    1.0.0
+     * @access private
+     * @param void
+     * @return bool success
+     *
+     */
+    private function CheckPhive(){
+        if ( is_plugin_active( 'woocommerce/woocommerce.php' ) && is_plugin_active( 'ph-bookings-appointments-woocommerce-premium/ph-bookings-appointments-woocommerce-premium.php' ) ){
+            return true;
+        }else{
+            return false;
+        }
     }
     
     /**
