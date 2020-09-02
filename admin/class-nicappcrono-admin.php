@@ -137,6 +137,10 @@ class Nicappcrono_Admin
             'show_in_menu'=>$this->plugin_name,
             'supports'=>array('title','custom_fields'),
             'capability_type'=>'post',
+            'capabilities' => array(
+                'create_posts' => false,
+            ),
+            'map_meta_cap' => true,
             'taxonomies'=>array());
 
             register_post_type( 'nicappcronocalendars', $customPostTypeArgs );
@@ -193,6 +197,7 @@ class Nicappcrono_Admin
      */
     public function setupCustomPostTypeMetaboxes(){
         add_meta_box('custom_post_type_data_meta_box', __('Calendar information','nicappcrono'), array($this,'custom_post_type_data_meta_box'), 'nicappcronocalendars', 'normal','high' );
+        remove_meta_box('wpseo_meta', 'nicappcronocalendars', 'normal');
     }
     
     /**
@@ -657,16 +662,11 @@ class Nicappcrono_Admin
         $masterevents = $mastercronofy->read_events( array( 
             "from" => $fechaFrom->format('Y-m-d'), 
             "to" => $fechaTo->format('Y-m-d'), 
-            "tzid" => "Europe/Paris", 
+            "tzid" => "Etc/UTC",
             "include_managed" => true, 
             "calendar_ids" => get_option( 'nicappcrono_masterCalendar' ) 
         ) );
-// return an array, not an object.
-        $eventos = [];
-        foreach ($masterevents as $event){ 
-            $eventos[] = $event; 
-        }
-        return $eventos;
+        return (array)$masterevents;
 	}
 
     /**
@@ -698,16 +698,11 @@ class Nicappcrono_Admin
         $events = $cronofy->read_events( array( 
             "from" => $fechaFrom->format('Y-m-d'), 
             "to" => $fechaTo->format('Y-m-d'), 
-            "tzid" => "Europe/Paris", 
+            "tzid" => "Etc/UTC",
             "include_managed" => true, 
             "calendar_ids" => get_post_meta ( $postID, $this->plugin_name.'_calendarID', true ) 
         ) );
-    // return an array, not an object.
-        $eventos = [];
-        foreach ($events as $event){ 
-            $eventos[] = $event; 
-        }
-        return $eventos;
+        return (array)$events;
     }
 
     /**
