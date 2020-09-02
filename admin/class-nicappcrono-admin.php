@@ -30,7 +30,7 @@ class Nicappcrono_Admin
      * @var string $plugin_name The ID of this plugin.
      */
     private $plugin_name;
-
+    
     /**
      * The version of this plugin.
      *
@@ -39,7 +39,7 @@ class Nicappcrono_Admin
      * @var string $version The current version of this plugin.
      */
     private $version;
-
+    
     /**
      * Initialize the class and set its properties.
      *
@@ -63,24 +63,24 @@ class Nicappcrono_Admin
         add_action('admin_init', array( $this, 'CheckAuthPage'));
         add_filter('plugin_action_links_' . $this->plugin_name, array($this, 'nicappcrono_add_plugin_page_settings_link'), 10 , 1);
     }
-
+    
     /**
      * Register the stylesheets for the admin area.
      *
      * @since 1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
     public function enqueue_styles(){
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/nicappcrono-admin.css', array(), $this->version, 'all');
     }
-
+    
     /**
      * Register the JavaScript for the admin area.
      *
      * @since 1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -94,7 +94,7 @@ class Nicappcrono_Admin
      * Register the Cron Job.
      *
      * @since 1.0.0
-     * @access public 
+     * @access public
      * @param void
      *
      */
@@ -102,12 +102,12 @@ class Nicappcrono_Admin
         $this->nicappcronoMaintenance();
         $this->UpdateMasterCalendar();
     }
- 
+    
     /**
      * Register custom post type.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -130,7 +130,7 @@ class Nicappcrono_Admin
                 'menu_name'=>__('Calendars','nicappcrono'),
                 'name_admin_bar'=>__('Calendars','nicappcrono'),
             ),
-            'public'=>true,
+            'public'=>false,
             'description'=>__('Nic-app Crono Calendars','nicappcrono'),
             'exclude_from_search'=>true,
             'show_ui'=>true,
@@ -141,33 +141,34 @@ class Nicappcrono_Admin
                 'create_posts' => false,
             ),
             'map_meta_cap' => true,
-            'taxonomies'=>array());
-
-            register_post_type( 'nicappcronocalendars', $customPostTypeArgs );
+            'taxonomies'=>array()
+            );
+            
+        register_post_type( 'nicappcronocalendars', $customPostTypeArgs );
     }
     
     /**
      * Admin menu.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
     public function addPluginAdminMenu() {
-//		add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
+        //		add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
         add_menu_page( 'Nic-app Crono', 'Nic-app Crono', 'administrator', $this->plugin_name, array( $this, 'display_plugin_admin_dashboard' ), plugin_dir_url( dirname(__FILE__) ) . 'admin/img/nic-app-logo.png', 26 );
-//      add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
+        //      add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
         add_submenu_page( $this->plugin_name, __('Nic-app Crono Settings','nicappcrono'), __('Settings','nicappcrono'), 'administrator', $this->plugin_name.'-settings', array( $this, 'displayPluginAdminSettings' ));
         add_submenu_page( $this->plugin_name, __('Nic-app Crono Scheduling','nicappcrono'), __('Scheduling','nicappcrono'), 'administrator', $this->plugin_name.'-scheduling', array( $this, 'displayPluginAdminScheduling' ));
         add_submenu_page( $this->plugin_name, __('Nic-app Crono Support','nicappcrono'), __('Support','nicappcrono'), 'administrator', $this->plugin_name.'-support', array( $this, 'displayPluginAdminSupport' ));
     }
-	
-	/**
+    
+    /**
      * Admin menu display.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -179,7 +180,7 @@ class Nicappcrono_Admin
      * Admin Dashboard.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -191,7 +192,7 @@ class Nicappcrono_Admin
      * Custom Post Type Metabox.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -204,74 +205,74 @@ class Nicappcrono_Admin
      * Custom Post Type Metabox.
      *
      * @since    1.0.0
-     * @access public 
+     * @access public
      * @param object $post
-     * 
+     *
      */
     public function custom_post_type_data_meta_box( $post ){
         wp_nonce_field( $this->plugin_name.'_affiliate_meta_box', $this->plugin_name.'_affiliates_meta_box_nonce' );
         
         echo '<div class="nicappcronocalendars_containers">';
         echo '<ul class="nicappcrono_calendar_data_metabox">';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_calendarID">';
         _e( 'Calendar ID', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_calendarID','name'=>$this->plugin_name.'_calendarID','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_calendarName">';
         _e( 'Calendar Name', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_calendarName','name'=>$this->plugin_name.'_calendarName','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_AccessToken">';
         _e( 'Access Token', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_AccessToken','name'=>$this->plugin_name.'_AccessToken','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_RefreshToken">';
         _e( 'Refresh Token', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_RefreshToken','name'=>$this->plugin_name.'_RefreshToken','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_ProfileName">';
         _e( 'Profile Name', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_ProfileName','name'=>$this->plugin_name.'_ProfileName','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_ProfileID">';
         _e( 'Profile ID', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_ProfileID','name'=>$this->plugin_name.'_ProfileID','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_ProviderID">';
         _e( 'Provider ID', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_ProviderID','name'=>$this->plugin_name.'_ProviderID','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
         echo '</li>';
-//
+        //
         echo '<li><hr/>';
-        _e('Check if you want product number to be displayed in calendar instead of content', 'nicappcrono');
+        _e('Check if you want product number to be displayed in calendar instead of content','nicappcrono');
         echo '</li>';
-//
+        //
         echo '<li><label for="'.$this->plugin_name.'_Product_Display">';
         _e( 'Product Display', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'checkbox','id'=>$this->plugin_name.'_Product_Display','name'=>$this->plugin_name.'_Product_Display','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID));
         echo '</li>';
-//
+        //
         echo '</li><li><label for="'.$this->plugin_name.'_Product_Id">';
         _e( 'Product ID', 'nicappcrono' );
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_Product_Id','name'=>$this->plugin_name.'_Product_Id','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID,'size'=>'6'));
         echo '</li><hr/>';
-//        
+        //
         echo '<li>';
         _e('Check if you want two way synchronization when new order is added to calendar. (Requires Pluginhive WooCommerce Bookings and Appointments Premium plugin).', 'nicappcrono');
         echo '</li><li><label for="'.$this->plugin_name.'_TwoWay">';
@@ -279,7 +280,7 @@ class Nicappcrono_Admin
         echo '</label> ';
         $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'checkbox','id'=>$this->plugin_name.'_TwoWay','name'=>$this->plugin_name.'_TwoWay','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID));
         echo '</li><hr/>';
-// provide textarea name for $_POST variable
+        // provide textarea name for $_POST variable
         $notes = get_post_meta( $post->ID, $this->plugin_name.'_notes', true );
         echo '<li><label for="'.$this->plugin_name.'_notes"><strong>';
         _e( 'Notes', 'nicappcrono' );
@@ -292,9 +293,9 @@ class Nicappcrono_Admin
      * Custom Post Type Metabox Render fields.
      *
      * @since    1.0.0
-     * @access public 
+     * @access public
      * @param array $args
-     * 
+     *
      */
     public function nicappcrono_render_settings_field( $args ) {
         if($args['wp_data'] == 'option'){
@@ -302,7 +303,7 @@ class Nicappcrono_Admin
         } elseif($args['wp_data'] == 'post_meta'){
             $wp_data_value = get_post_meta($args['post_id'], $args['name'], true );
         }
-
+        
         switch ($args['type']) {
             case 'input':
                 $value = ($args['value_type'] == 'serialized') ? serialize($wp_data_value) : $wp_data_value;
@@ -336,9 +337,9 @@ class Nicappcrono_Admin
      * Custom Post Type Metabox Save fields.
      *
      * @since    1.0.0
-     * @access public 
+     * @access public
      * @param string $post_id
-     * 
+     *
      */
     public function saveCustomPostTypeMetaBoxData( $post_id ) {
         /*
@@ -346,7 +347,7 @@ class Nicappcrono_Admin
          * because the save_post action can be triggered at other times.
          */
         // Check if our nonce is set.
-        if ( ! isset( $_POST[$this->plugin_name.'_affiliates_meta_box_nonce'] ) ) return; 
+        if ( ! isset( $_POST[$this->plugin_name.'_affiliates_meta_box_nonce'] ) ) return;
         // Verify that the nonce is valid.
         if ( ! wp_verify_nonce( $_POST[$this->plugin_name.'_affiliates_meta_box_nonce'], $this->plugin_name.'_affiliate_meta_box' ) ) return;
         // If this is an autosave, our form has not been submitted, so we don't want to do anything.
@@ -388,7 +389,7 @@ class Nicappcrono_Admin
      * Display Admin settings.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -399,12 +400,12 @@ class Nicappcrono_Admin
         }
         require_once 'partials/'.$this->plugin_name.'-admin-settings-display.php';
     }
-	
+    
     /**
      * Display Calendar Scheduling.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -415,7 +416,7 @@ class Nicappcrono_Admin
         }
         require_once 'partials/'.$this->plugin_name.'-admin-scheduling-display.php';
     }
-
+    
     /**
      * Display Calendar Support.
      *
@@ -431,14 +432,14 @@ class Nicappcrono_Admin
         }
         require_once 'partials/'.$this->plugin_name.'-admin-support-display.php';
     }
-	
+    
     /**
      * Display Admin settings error messages.
      *
      * @since    1.0.0
-     * @access public 
+     * @access public
      * @param $error_message
-     * 
+     *
      */
     public function pluginNameSettingsMessages($error_message){
         switch ($error_message) {
@@ -454,14 +455,14 @@ class Nicappcrono_Admin
             $err_code,
             $message,
             $type
-        );
+            );
     }
     
     /**
      * Display Admin settings register fields.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -471,32 +472,32 @@ class Nicappcrono_Admin
             '',                                 // Title to be displayed on the administration page
             array( $this, 'nicappcrono_display_general_account' ),  // Callback used to render the description of the section
             'nicappcrono_general_settings'      // Page on which to add this section of options
-        );
-//  Data Center
+            );
+        //  Data Center
         add_settings_field('nicappcrono_DataCenter',__('Use European Data Center','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'checkbox',  'id'=>'nicappcrono_DataCenter',  		'name'=>'nicappcrono_DataCenter',   'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-//  clientId
-        add_settings_field('nicappcrono_clientId',          __('Client ID','nicappcrono'),              array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section', 
+        //  clientId
+        add_settings_field('nicappcrono_clientId',          __('Client ID','nicappcrono'),              array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_clientId',           'name'=>'nicappcrono_clientId',             'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-//  clientSecret
-        add_settings_field('nicappcrono_clientSecret',      __('Client Secret','nicappcrono'),          array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section', 
+        //  clientSecret
+        add_settings_field('nicappcrono_clientSecret',      __('Client Secret','nicappcrono'),          array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'password',  'id'=>'nicappcrono_clientSecret',       'name'=>'nicappcrono_clientSecret',         'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-//  masterCalendar
-        add_settings_field('nicappcrono_masterCalendar',    __('Master Calendar','nicappcrono'),        array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section', 
+        //  masterCalendar
+        add_settings_field('nicappcrono_masterCalendar',    __('Master Calendar','nicappcrono'),        array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_masterCalendar',     'name'=>'nicappcrono_masterCalendar',       'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-//  masterRefreshToken
+        //  masterRefreshToken
         add_settings_field('nicappcrono_masterRefreshToken',__('Master Refresh Token','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_masterRefreshToken', 'name'=>'nicappcrono_masterRefreshToken',   'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-//  masterAccessToken
+        //  masterAccessToken
         add_settings_field('nicappcrono_masterAccessToken', __('Master Access Token','nicappcrono'),    array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings','nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_masterAccessToken',  'name'=>'nicappcrono_masterAccessToken',    'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-//  Authorization page
+        //  Authorization page
         add_settings_field('nicappcrono_AuthorizationPageId',__('Authorization Page ID','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_AuthorizationPageId',  'name'=>'nicappcrono_AuthorizationPageId','required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option', 'size'=>'6'));
-//  Authorization page
+        //  Authorization page
         add_settings_field('nicappcrono_CreateAuthPage',__('Create new Authorization Page','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
             array ('type'=>'input', 'subtype'=>'checkbox',  'id'=>'nicappcrono_CreateAuthPage',  		'name'=>'nicappcrono_CreateAuthPage',   'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
-		
+        
         register_setting('nicappcrono_general_settings', 'nicappcrono_DataCenter');
         register_setting('nicappcrono_general_settings', 'nicappcrono_clientId');
         register_setting('nicappcrono_general_settings', 'nicappcrono_clientSecret');
@@ -511,7 +512,7 @@ class Nicappcrono_Admin
      * Display Admin settings display name.
      *
      * @since    1.0.0
-     * @access public  
+     * @access public
      * @param void
      *
      */
@@ -523,15 +524,15 @@ class Nicappcrono_Admin
         echo '</p><p>';
         _e('Because there is no data flow then separate developer accounts need to be created on the instance that suits your requirements. Functionally the APIs are identical.','nicappcrono');
         echo '</p><hr/>';
-    } 
+    }
     
     /**
      * Display Columns in post type page.
      *
      * @since    1.0.0
-     * @access public 
+     * @access public
      * @param array $columns
-     * 
+     *
      */
     public function custom_post_type_columns( $columns ){
         unset(
@@ -541,7 +542,7 @@ class Nicappcrono_Admin
             $columns['wpseo-links'],
             $columns['wpseo-metadesc'],
             $columns['wpseo-focuskw']
-        );
+            );
         return array(
             'cb' => '<input type="checkbox" />',
             'title' => __('Title', 'nicappcrono'),
@@ -557,11 +558,11 @@ class Nicappcrono_Admin
      * Fill Columns in post type page.
      *
      * @since    1.0.0
-     * @access public 
+     * @access public
      * @param string $column
-     * 
+     *
      * @param string $postID
-     * 
+     *
      */
     public function fill_custom_post_type_columns( $column, $postID ) {
         switch ( $column ) {
@@ -579,14 +580,14 @@ class Nicappcrono_Admin
                 break;
         }
     }
-
+    
     /**
      * Check defined authorization page.
      *
      * @since    1.0.0
-     * @access private 
+     * @access private
      * @param void
-     * 
+     *
      */
     public function CheckAuthPage(){
         if( get_option( 'nicappcrono_CreateAuthPage' )){
@@ -604,14 +605,14 @@ class Nicappcrono_Admin
             }
         }
     }
-	
+    
     /**
      * Cron job fill mastercalendar with calendars entries.
      *
      * @since    1.0.0
-     * @access private 
+     * @access private
      * @param void
-     * 
+     *
      */
     private function UpdateMasterCalendar(){
         if( strlen( get_option( 'nicappcrono_clientId' ) ) < 25 ) return false;
@@ -622,30 +623,30 @@ class Nicappcrono_Admin
         $MasterEvents = $this->ReadMasterCalendar( $fechaFrom, $fechaTo );
         $loop = new WP_Query( array( 'post_type' => 'nicappcronocalendars' , 'posts_per_page' => 5000 , 'orderby' => 'rand', ) );
         while ( $loop->have_posts() ) : $loop->the_post();
-            $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
-            $CalendarEvents = $this->ReadCalendar( $loop->post->ID, $fechaFrom, $fechaTo );
-            if( $CalendarEvents ){
-                $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-                $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-                $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-                $this->UpdateExternalEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-            }
+        $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
+        $CalendarEvents = $this->ReadCalendar( $loop->post->ID, $fechaFrom, $fechaTo );
+        if( $CalendarEvents ){
+            $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+            $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+            $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+            $this->UpdateExternalEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+        }
         endwhile;
         wp_reset_query();
         $this->custom_logs( 'UpdateMasterCalendar End Cron Session' );
         $this->custom_logs( '---' );
     }
-	
+    
     /**
      * Read mastercalendar content.
      *
      * @since    1.0.0
-     * @access private 
+     * @access private
      * @param DateTime $fechaFrom
      *            Date for the begining of the search.
      * @param DateTime $fechaTo
      *            Date for the end of the search.
-     * @return mixed false|array $eventos 
+     * @return mixed false|array $eventos
      *            Array of events if calendar exists. Otherwise false.
      */
     private function ReadMasterCalendar( $fechaFrom, $fechaTo ){
@@ -659,28 +660,32 @@ class Nicappcrono_Admin
         if( get_option( 'nicappcrono_DataCenter' ) ) $params["data_center"] = 'de';
         $mastercronofy = new Cronofy( $params );
         $mastercronofy->refresh_token();
-        $masterevents = $mastercronofy->read_events( array( 
-            "from" => $fechaFrom->format('Y-m-d'), 
-            "to" => $fechaTo->format('Y-m-d'), 
+        $masterevents = $mastercronofy->read_events( array(
+            "from" => $fechaFrom->format('Y-m-d'),
+            "to" => $fechaTo->format('Y-m-d'),
             "tzid" => "Etc/UTC",
-            "include_managed" => true, 
-            "calendar_ids" => get_option( 'nicappcrono_masterCalendar' ) 
+            "include_managed" => true,
+            "calendar_ids" => get_option( 'nicappcrono_masterCalendar' )
         ) );
-        return (array)$masterevents;
-	}
-
+        $eventos = [];
+        foreach ($masterevents as $event){
+            $eventos[] = $event;
+        }
+        return $eventos;
+    }
+    
     /**
      * Read calendar content.
      *
      * @since    1.0.0
      * @access private
      * @param string $postID
-     * 			  Post Type Calendar ID	
+     * 			  Post Type Calendar ID
      * @param DateTime $fechaFrom
      *            Date for the begining of the search.
      * @param DateTime $fecha_to
      *            Date for the end of the search.
-     * @return mixed false|array $eventos 
+     * @return mixed false|array $eventos
      *            Array of events if calendar exists. Otherwise false.
      */
     private function ReadCalendar( $postID, $fechaFrom, $fechaTo ){
@@ -695,16 +700,20 @@ class Nicappcrono_Admin
         if( get_option( 'nicappcrono_DataCenter' ) ) $params["data_center"] = 'de';
         $cronofy = new Cronofy( $params );
         $cronofy->refresh_token();
-        $events = $cronofy->read_events( array( 
-            "from" => $fechaFrom->format('Y-m-d'), 
-            "to" => $fechaTo->format('Y-m-d'), 
+        $events = $cronofy->read_events( array(
+            "from" => $fechaFrom->format('Y-m-d'),
+            "to" => $fechaTo->format('Y-m-d'),
             "tzid" => "Etc/UTC",
-            "include_managed" => true, 
-            "calendar_ids" => get_post_meta ( $postID, $this->plugin_name.'_calendarID', true ) 
+            "include_managed" => true,
+            "calendar_ids" => get_post_meta ( $postID, $this->plugin_name.'_calendarID', true )
         ) );
-        return (array)$events;
+        $eventos = [];
+        foreach ($events as $event){
+            $eventos[] = $event;
+        }
+        return $eventos;
     }
-
+    
     /**
      * Create Master calendar event if it does not exist.
      *
@@ -804,9 +813,9 @@ class Nicappcrono_Admin
             }
         }
     }
-	
+    
     /**
-     * Update external calendar entry.
+     * Update external calendar entry
      *
      * @since    1.0.0
      * @access private
@@ -829,7 +838,7 @@ class Nicappcrono_Admin
                 if( $order !== false ) {
                     foreach( $order->get_items() as $item ){
                         if( get_post_meta( $postID , $this->plugin_name.'_Product_Id' , true ) == $item->get_product_id() ){
-                        
+                            
                         }
                     }
                 }
@@ -865,7 +874,7 @@ class Nicappcrono_Admin
          * Event identifier.
          */
         $eventID = 'nicappcrono.' . $args['postID'] . '.' . $args['start'] . '.' . $args['end'] . '.' . $args['event_uid'];
-	    
+        
         $params = array(
             "client_id" => get_option( 'nicappcrono_clientId' ),
             "client_secret" => get_option( 'nicappcrono_clientSecret' ),
@@ -887,7 +896,7 @@ class Nicappcrono_Admin
         ( $args["action"] == 'create') ? $this->custom_logs( 'UpdateEvent event created ' . $eventID ) : $this->custom_logs( 'UpdateEvent event updated ' . $eventID ) ;
         return true;
     }
-	
+    
     /**
      * Delete Master calendar entry
      *
@@ -914,14 +923,14 @@ class Nicappcrono_Admin
         $this->custom_logs( 'DeleteEvent event deleted ' . $eventID );
         return true;
     }
-	
+    
     /**
      * Cron job maintenance tasks.
      *
      * @since    1.0.0
-     * @access protected 
+     * @access protected
      * @param void
-     * 
+     *
      */
     protected function nicappcronoMaintenance(){
         $this->custom_logs( 'nicappcronoMaintenance begins' );
@@ -931,15 +940,15 @@ class Nicappcrono_Admin
                 $this->custom_logs( 'Logfile: ' . plugin_dir_path(dirname(__FILE__)) . 'logs/' . $file . ' -> ' . date("d-m-Y H:i:s", filemtime( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  )));
                 if( time() > strtotime('+1 week', filemtime( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  ))){
                     $this->custom_logs( 'Old logfile' );
-                    unlink( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  );				
-                } 
+                    unlink( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  );
+                }
             }
         }
         $this->custom_logs( 'nicappcronoMaintenance ends' );
         $this->custom_logs( '---' );
         return;
     }
-	
+    
     /**
      * Utility: scheduled job timestamp.
      *
@@ -957,7 +966,7 @@ class Nicappcrono_Admin
             _e( 'No scheduled jobs. No calendar entries will be checked.', 'nicappcrono' );
         }
     }
-
+    
     /**
      * Utility: log files.
      *
@@ -1022,7 +1031,7 @@ class Nicappcrono_Admin
             return $links;
     }
     
-    /**
+	/**
      * Check if pluginhive is active.
      *
      * @since    1.0.0
@@ -1038,7 +1047,7 @@ class Nicappcrono_Admin
             return false;
         }
     }
-    
+	
     /**
      * Utility: create entry in the log file.
      *

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-08-28T11:38:22+02:00\n"
+"POT-Creation-Date: 2020-09-02T10:24:33+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: nicappcrono\n"
@@ -35,197 +35,211 @@ msgstr ""
 msgid "https://efraim.cat"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:118
-#: admin/class-nicappcrono-admin.php:135
+#: admin/class-nicappcrono-admin.php:117
+#: admin/class-nicappcrono-admin.php:134
 msgid "Nic-app Crono Calendars"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:121
+#: admin/class-nicappcrono-admin.php:120
+#: admin/class-nicappcrono-admin.php:130
 #: admin/class-nicappcrono-admin.php:131
-#: admin/class-nicappcrono-admin.php:132
-#: public/class-nicappcrono-public.php:183
+#: public/class-nicappcrono-public.php:185
 msgid "Calendars"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:122
+#: admin/class-nicappcrono-admin.php:121
 msgid "Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:123
+#: admin/class-nicappcrono-admin.php:122
 msgid "Add Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:124
+#: admin/class-nicappcrono-admin.php:123
 msgid "Add New Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:125
+#: admin/class-nicappcrono-admin.php:124
 msgid "Edit Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:126
+#: admin/class-nicappcrono-admin.php:125
 msgid "New Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:127
+#: admin/class-nicappcrono-admin.php:126
 msgid "View Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:128
+#: admin/class-nicappcrono-admin.php:127
 msgid "Search Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:129
+#: admin/class-nicappcrono-admin.php:128
 msgid "No Calendars Found"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:130
+#: admin/class-nicappcrono-admin.php:129
 msgid "No Calendarss Found in Trash"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:159
+#: admin/class-nicappcrono-admin.php:161
 #: admin/partials/nicappcrono-admin-display.php:21
 #: admin/partials/nicappcrono-admin-settings-display.php:17
 msgid "Nic-app Crono Settings"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:159
-#: admin/class-nicappcrono-admin.php:1052
+#: admin/class-nicappcrono-admin.php:161
+#: admin/class-nicappcrono-admin.php:1029
 msgid "Settings"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:160
+#: admin/class-nicappcrono-admin.php:162
 #: admin/partials/nicappcrono-admin-scheduling-display.php:17
 msgid "Nic-app Crono Scheduling"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:160
+#: admin/class-nicappcrono-admin.php:162
 msgid "Scheduling"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:161
+#: admin/class-nicappcrono-admin.php:163
 #: admin/partials/nicappcrono-admin-support-display.php:21
 msgid "Nic-app Crono Support"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:161
+#: admin/class-nicappcrono-admin.php:163
 msgid "Support"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:197
+#: admin/class-nicappcrono-admin.php:199
 msgid "Calendar information"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:216
-#: admin/class-nicappcrono-admin.php:552
+#: admin/class-nicappcrono-admin.php:218
+#: admin/class-nicappcrono-admin.php:548
 msgid "Calendar ID"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:222
+#: admin/class-nicappcrono-admin.php:224
 msgid "Calendar Name"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:228
+#: admin/class-nicappcrono-admin.php:230
 msgid "Access Token"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:234
+#: admin/class-nicappcrono-admin.php:236
 msgid "Refresh Token"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:240
+#: admin/class-nicappcrono-admin.php:242
 msgid "Profile Name"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:246
+#: admin/class-nicappcrono-admin.php:248
 msgid "Profile ID"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:252
+#: admin/class-nicappcrono-admin.php:254
 msgid "Provider ID"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:258
+#: admin/class-nicappcrono-admin.php:260
 msgid "Check if you want product number to be displayed in calendar instead of content"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:262
+#: admin/class-nicappcrono-admin.php:264
 msgid "Product Display"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:268
-#: admin/class-nicappcrono-admin.php:554
+#: admin/class-nicappcrono-admin.php:270
+#: admin/class-nicappcrono-admin.php:551
 msgid "Product ID"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:275
+#: admin/class-nicappcrono-admin.php:276
+msgid "Check if you want two way synchronization when new order is added to calendar. (Requires Pluginhive WooCommerce Bookings and Appointments Premium plugin)."
+msgstr ""
+
+#: admin/class-nicappcrono-admin.php:278
+msgid "Two Way Synchronization"
+msgstr ""
+
+#: admin/class-nicappcrono-admin.php:285
 msgid "Notes"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:450
+#: admin/class-nicappcrono-admin.php:446
 msgid "There was an error adding this setting. Please try again.  If this persists, shoot us an email."
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:480
+#: admin/class-nicappcrono-admin.php:476
 msgid "Use European Data Center"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:483
+#: admin/class-nicappcrono-admin.php:479
 msgid "Client ID"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:486
+#: admin/class-nicappcrono-admin.php:482
 msgid "Client Secret"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:489
+#: admin/class-nicappcrono-admin.php:485
 msgid "Master Calendar"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:492
-msgid "Master Access Token"
-msgstr ""
-
-#: admin/class-nicappcrono-admin.php:495
+#: admin/class-nicappcrono-admin.php:488
 msgid "Master Refresh Token"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:498
+#: admin/class-nicappcrono-admin.php:491
+msgid "Master Access Token"
+msgstr ""
+
+#: admin/class-nicappcrono-admin.php:494
 msgid "Authorization Page ID"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:501
+#: admin/class-nicappcrono-admin.php:497
 msgid "Create new Authorization Page"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:524
+#: admin/class-nicappcrono-admin.php:520
 msgid "These settings refer to your Cronofy account for master calendar an apply to all Nic-app Crono functionality."
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:526
+#: admin/class-nicappcrono-admin.php:522
 msgid "Cronofy currently provides two data centers one in the USA, the default, and one in Germany. They are run as completely separate instances with no data flow between. This allows you to ensure data is kept within jurisdictional boundaries, eg. the EEA."
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:528
+#: admin/class-nicappcrono-admin.php:524
 msgid "Because there is no data flow then separate developer accounts need to be created on the instance that suits your requirements. Functionally the APIs are identical."
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:551
+#: admin/class-nicappcrono-admin.php:547
 msgid "Title"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:553
+#: admin/class-nicappcrono-admin.php:549
 msgid "Product display"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:555
+#: admin/class-nicappcrono-admin.php:550
+msgid "Two Way"
+msgstr ""
+
+#: admin/class-nicappcrono-admin.php:552
 msgid "Date"
 msgstr ""
 
+#: admin/class-nicappcrono-admin.php:569
 #: admin/class-nicappcrono-admin.php:572
 msgid "Yes"
 msgstr ""
 
+#: admin/class-nicappcrono-admin.php:569
 #: admin/class-nicappcrono-admin.php:572
 msgid "No"
 msgstr ""
@@ -234,15 +248,11 @@ msgstr ""
 msgid "Authorization"
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:744
-msgid "calendar entry."
-msgstr ""
-
-#: admin/class-nicappcrono-admin.php:988
+#: admin/class-nicappcrono-admin.php:965
 msgid "No scheduled jobs. No calendar entries will be checked."
 msgstr ""
 
-#: admin/class-nicappcrono-admin.php:1015
+#: admin/class-nicappcrono-admin.php:992
 msgid "View log file"
 msgstr ""
 
@@ -281,7 +291,7 @@ msgid "with any questions."
 msgstr ""
 
 #: admin/partials/nicappcrono-admin-scheduling-display.php:20
-msgid "Next schedule: "
+msgid "Next schedule (UTC): "
 msgstr ""
 
 #: admin/partials/nicappcrono-admin-scheduling-display.php:25
@@ -296,26 +306,26 @@ msgstr ""
 msgid "It can be any page that contains the shortcode [NicappAuth]. In that case we will simply enter the ID of the page. We can create a new page with the shortcode in it if we check the option to create a new page."
 msgstr ""
 
-#: public/class-nicappcrono-public.php:136
+#: public/class-nicappcrono-public.php:138
 msgid "Authorization Processed"
 msgstr ""
 
-#: public/class-nicappcrono-public.php:137
+#: public/class-nicappcrono-public.php:139
 msgid "Thank you for authorizing access to your calendar."
 msgstr ""
 
-#: public/class-nicappcrono-public.php:138
+#: public/class-nicappcrono-public.php:140
 msgid "Your calendar was already authorized."
 msgstr ""
 
-#: public/class-nicappcrono-public.php:139
+#: public/class-nicappcrono-public.php:141
 msgid "Your inputs have been saved."
 msgstr ""
 
-#: public/class-nicappcrono-public.php:184
+#: public/class-nicappcrono-public.php:186
 msgid "Please choose the calendar you wish to share"
 msgstr ""
 
-#: public/class-nicappcrono-public.php:206
+#: public/class-nicappcrono-public.php:208
 msgid "Send"
 msgstr ""
