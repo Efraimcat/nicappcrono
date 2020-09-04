@@ -14,6 +14,7 @@
 ?>
 <div class="wrap">
 	<div id="icon-themes" class="icon32"></div>  
+	<h2><?php esc_html_e( get_admin_page_title() .' '.$this->version); ?></h2>
 	<h2><?php _e('Nic-app Crono Settings','nicappcrono'); ?></h2>  
 	<?php settings_errors(); ?>  
 	<form method="POST" action="options.php">  

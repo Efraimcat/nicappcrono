@@ -212,81 +212,189 @@ class Nicappcrono_Admin
     public function custom_post_type_data_meta_box( $post ){
         wp_nonce_field( $this->plugin_name.'_affiliate_meta_box', $this->plugin_name.'_affiliates_meta_box_nonce' );
         
-        echo '<div class="nicappcronocalendars_containers">';
-        echo '<ul class="nicappcrono_calendar_data_metabox">';
+        ?><div class="nicappcronocalendars_containers"><?php 
+        ?><ul class="nicappcrono_calendar_data_metabox"><?php 
         //
-        echo '<li><label for="'.$this->plugin_name.'_calendarID">';
+		?><li><label for=" <?php esc_html_e($this->plugin_name . '_calendarID' ); ?>"> <?php 
         _e( 'Calendar ID', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_calendarID','name'=>$this->plugin_name.'_calendarID','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php 
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input', 
+            'subtype' => 'text', 
+            'id' => $this->plugin_name.'_calendarID', 
+            'name' => $this->plugin_name.'_calendarID', 
+            'required' => '', 
+            'get_options_list' => '', 
+            'value_type' => 'normal', 
+            'wp_data' => 'post_meta', 
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php 
         //
-        echo '<li><label for="'.$this->plugin_name.'_calendarName">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_calendarName' ); ?>"> <?php
         _e( 'Calendar Name', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_calendarName','name'=>$this->plugin_name.'_calendarName','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_calendarName',
+            'name' => $this->plugin_name.'_calendarName',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php
         //
-        echo '<li><label for="'.$this->plugin_name.'_AccessToken">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_AccessToken' ); ?>"> <?php
         _e( 'Access Token', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_AccessToken','name'=>$this->plugin_name.'_AccessToken','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_AccessToken',
+            'name' => $this->plugin_name.'_AccessToken',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php
         //
-        echo '<li><label for="'.$this->plugin_name.'_RefreshToken">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_RefreshToken' ); ?>"> <?php
         _e( 'Refresh Token', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_RefreshToken','name'=>$this->plugin_name.'_RefreshToken','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_RefreshToken',
+            'name' => $this->plugin_name.'_RefreshToken',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php
         //
-        echo '<li><label for="'.$this->plugin_name.'_ProfileName">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_ProfileName' ); ?>"> <?php
         _e( 'Profile Name', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_ProfileName','name'=>$this->plugin_name.'_ProfileName','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_ProfileName',
+            'name' => $this->plugin_name.'_ProfileName',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php
         //
-        echo '<li><label for="'.$this->plugin_name.'_ProfileID">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_ProfileID' ); ?>"> <?php
         _e( 'Profile ID', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_ProfileID','name'=>$this->plugin_name.'_ProfileID','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_ProfileID',
+            'name' => $this->plugin_name.'_ProfileID',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php
         //
-        echo '<li><label for="'.$this->plugin_name.'_ProviderID">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_ProviderID' ); ?>"> <?php
         _e( 'Provider ID', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_ProviderID','name'=>$this->plugin_name.'_ProviderID','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID, 'disabled'=>''));
-        echo '</li>';
+        ?></label><?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_ProviderID',
+            'name' => $this->plugin_name.'_ProviderID',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID, 
+            'disabled' => ''
+        ));
+        ?></li><?php
         //
-        echo '<li><hr/>';
+        ?><li><hr/><?php 
         _e('Check if you want product number to be displayed in calendar instead of content','nicappcrono');
-        echo '</li>';
+        ?></li><?php
         //
-        echo '<li><label for="'.$this->plugin_name.'_Product_Display">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_Product_Display' ); ?>"> <?php
         _e( 'Product Display', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'checkbox','id'=>$this->plugin_name.'_Product_Display','name'=>$this->plugin_name.'_Product_Display','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID));
-        echo '</li>';
+        ?></label> <?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'checkbox',
+            'id' => $this->plugin_name.'_Product_Display',
+            'name' => $this->plugin_name.'_Product_Display',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID
+        ));
+        ?></li><?php
         //
-        echo '</li><li><label for="'.$this->plugin_name.'_Product_Id">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_Product_Id' ); ?>"> <?php
         _e( 'Product ID', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'text','id'=>$this->plugin_name.'_Product_Id','name'=>$this->plugin_name.'_Product_Id','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID,'size'=>'6'));
-        echo '</li><hr/>';
+        ?></label> <?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'text',
+            'id' => $this->plugin_name.'_Product_Id',
+            'name' => $this->plugin_name.'_Product_Id',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID,
+            'size' => '6'
+        ));
+        ?></li><hr/><?php
         //
-        echo '<li>';
+        ?><li><?php 
         _e('Check if you want two way synchronization when new order is added to calendar. (Requires Pluginhive WooCommerce Bookings and Appointments Premium plugin).', 'nicappcrono');
-        echo '</li><li><label for="'.$this->plugin_name.'_TwoWay">';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_TwoWay' ); ?>"> <?php
         _e( 'Two Way Synchronization', 'nicappcrono' );
-        echo '</label> ';
-        $this->nicappcrono_render_settings_field(array ('type'=>'input','subtype'=>'checkbox','id'=>$this->plugin_name.'_TwoWay','name'=>$this->plugin_name.'_TwoWay','required'=>'','get_options_list'=>'','value_type'=>'normal','wp_data'=>'post_meta','post_id'=>$post->ID));
-        echo '</li><hr/>';
+        ?></label> <?php
+        $this->nicappcrono_render_settings_field( array(
+            'type' => 'input',
+            'subtype' => 'checkbox',
+            'id' => $this->plugin_name.'_TwoWay',
+            'name' => $this->plugin_name.'_TwoWay',
+            'required' => '',
+            'get_options_list' => '',
+            'value_type' => 'normal',
+            'wp_data' => 'post_meta',
+            'post_id' => $post->ID
+        ));
+        ?></li><hr/><?php 
         // provide textarea name for $_POST variable
         $notes = get_post_meta( $post->ID, $this->plugin_name.'_notes', true );
-        echo '<li><label for="'.$this->plugin_name.'_notes"><strong>';
+        ?><li><label for=" <?php esc_html_e($this->plugin_name . '_notes' ); ?>"><strong> <?php
         _e( 'Notes', 'nicappcrono' );
-        echo '</strong></label> ';
-        wp_editor( $notes, $this->plugin_name.'_notes_editor',array('textarea_name' => $this->plugin_name.'_notes',));
-        echo '</li></ul></div>';
+        ?></strong></label><?php 
+        wp_editor( $notes, $this->plugin_name.'_notes_editor', array( 'textarea_name' => $this->plugin_name.'_notes', ) );
+        ?></li></ul></div><?php
     }
     
     /**
@@ -325,7 +433,7 @@ class Nicappcrono_Admin
                     
                 } else {
                     $checked = ($value) ? 'checked' : '';
-                    echo '<input type="'.$args['subtype'].'" id="'.$args['id'].'" "'.$args['required'].'" name="'.$args['name'].'" size="40" value="1" '.$checked.' />';
+					?><input type="<?php esc_html_e( $args['subtype'] ); ?>" id="<?php esc_html_e( $args['id'] ); ?>" <?php esc_html_e( $args['required'] ); ?> name="<?php esc_html_e( $args['name'] ); ?>" size="40" value="1" <?php esc_html_e( $checked ); ?>  /><?php
                 }
                 break;
             default:
@@ -396,7 +504,7 @@ class Nicappcrono_Admin
     public function displayPluginAdminSettings() {
         if(isset($_GET['error_message'])){
             add_action('admin_notices', array($this,'pluginNameSettingsMessages'));
-            do_action( 'admin_notices', $_GET['error_message'] );
+            do_action( 'admin_notices', sanitize_text_field( $_GET['error_message'] ) ) ;
         }
         require_once 'partials/'.$this->plugin_name.'-admin-settings-display.php';
     }
@@ -412,7 +520,7 @@ class Nicappcrono_Admin
     public function displayPluginAdminScheduling(){
         if(isset($_GET['error_message'])){
             add_action('admin_notices', array($this,'pluginNameSettingsMessages'));
-            do_action( 'admin_notices', $_GET['error_message'] );
+            do_action( 'admin_notices', sanitize_text_field( $_GET['error_message'] ) );
         }
         require_once 'partials/'.$this->plugin_name.'-admin-scheduling-display.php';
     }
@@ -474,38 +582,143 @@ class Nicappcrono_Admin
             'nicappcrono_general_settings'      // Page on which to add this section of options
             );
         //  Data Center
-        add_settings_field('nicappcrono_DataCenter',__('Use European Data Center','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'checkbox',  'id'=>'nicappcrono_DataCenter',  		'name'=>'nicappcrono_DataCenter',   'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_DataCenter',
+            __('Use European Data Center', 'nicappcrono'),
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type' => 'input', 
+                'subtype' => 'checkbox',  
+                'id' => $this->plugin_name.'_DataCenter',  		
+                'name' => $this->plugin_name.'_DataCenter',   
+                'required' => 'true', 
+                'get_options_list' => '', 
+                'value_type' => 'normal', 
+                'wp_data' => 'option'
+            )
+        );
         //  clientId
-        add_settings_field('nicappcrono_clientId',          __('Client ID','nicappcrono'),              array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_clientId',           'name'=>'nicappcrono_clientId',             'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_clientId',          
+            __('Client ID', 'nicappcrono'),              
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type' => 'input', 
+                'subtype' => 'text',      
+                'id' => $this->plugin_name.'_clientId',           
+                'name' => $this->plugin_name.'_clientId',     
+                'required' => 'true', 
+                'get_options_list' => '', 
+                'value_type' => 'normal', 
+                'wp_data' => 'option'
+            )
+        );
         //  clientSecret
-        add_settings_field('nicappcrono_clientSecret',      __('Client Secret','nicappcrono'),          array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'password',  'id'=>'nicappcrono_clientSecret',       'name'=>'nicappcrono_clientSecret',         'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_clientSecret',      
+            __('Client Secret', 'nicappcrono'),          
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type' => 'input', 
+                'subtype' => 'password',  
+                'id' => $this->plugin_name.'_clientSecret',       
+                'name' => $this->plugin_name.'_clientSecret',         
+                'required' => 'true', 
+                'get_options_list' => '', 
+                'value_type' => 'normal', 
+                'wp_data' => 'option'
+            )
+        );
         //  masterCalendar
-        add_settings_field('nicappcrono_masterCalendar',    __('Master Calendar','nicappcrono'),        array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_masterCalendar',     'name'=>'nicappcrono_masterCalendar',       'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_masterCalendar',    
+            __('Master Calendar', 'nicappcrono'),        
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type'=>'input', 
+                'subtype'=>'text',      
+                'id'=>$this->plugin_name.'_masterCalendar',     
+                'name'=>$this->plugin_name.'_masterCalendar',       
+                'required'=>'true', 
+                'get_options_list'=>'', 
+                'value_type'=>'normal', 
+                'wp_data'=>'option'
+            )
+        );
         //  masterRefreshToken
-        add_settings_field('nicappcrono_masterRefreshToken',__('Master Refresh Token','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_masterRefreshToken', 'name'=>'nicappcrono_masterRefreshToken',   'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_masterRefreshToken',
+            __('Master Refresh Token', 'nicappcrono'),   
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type' => 'input', 
+                'subtype' => 'text',      
+                'id' => $this->plugin_name.'_masterRefreshToken', 
+                'name' => $this->plugin_name.'_masterRefreshToken',   
+                'required' => 'true', 
+                'get_options_list' => '', 
+                'value_type' => 'normal', 
+                'wp_data' => 'option'
+            )
+        );
         //  masterAccessToken
-        add_settings_field('nicappcrono_masterAccessToken', __('Master Access Token','nicappcrono'),    array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings','nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_masterAccessToken',  'name'=>'nicappcrono_masterAccessToken',    'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_masterAccessToken', 
+            __('Master Access Token', 'nicappcrono'),    
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings',
+            'nicappcrono_general_section',
+            array ('type' => 'input', 
+                'subtype' => 'text',      
+                'id' => $this->plugin_name.'_masterAccessToken',  
+                'name' => $this->plugin_name.'_masterAccessToken',    
+                'required' => 'true', 
+                'get_options_list' => '', 
+                'value_type' => 'normal', 
+                'wp_data' => 'option'
+            )
+        );
         //  Authorization page
-        add_settings_field('nicappcrono_AuthorizationPageId',__('Authorization Page ID','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'text',      'id'=>'nicappcrono_AuthorizationPageId',  'name'=>'nicappcrono_AuthorizationPageId','required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option', 'size'=>'6'));
-        //  Authorization page
-        add_settings_field('nicappcrono_CreateAuthPage',__('Create new Authorization Page','nicappcrono'),   array( $this, 'nicappcrono_render_settings_field' ), 'nicappcrono_general_settings', 'nicappcrono_general_section',
-            array ('type'=>'input', 'subtype'=>'checkbox',  'id'=>'nicappcrono_CreateAuthPage',  		'name'=>'nicappcrono_CreateAuthPage',   'required'=>'true', 'get_options_list'=>'', 'value_type'=>'normal', 'wp_data'=>'option'));
+        add_settings_field( $this->plugin_name.'_AuthorizationPageId',
+            __('Authorization Page ID','nicappcrono'),   
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type'=>'input', 
+                'subtype'=>'text',      
+                'id'=>$this->plugin_name.'_AuthorizationPageId',  
+                'name'=>$this->plugin_name.'_AuthorizationPageId',
+                'required'=>'true', 
+                'get_options_list'=>'', 
+                'value_type'=>'normal', 
+                'wp_data'=>'option', 
+                'size'=>'6'
+            )
+        );
+        //  Create page
+        add_settings_field( $this->plugin_name.'_CreateAuthPage',
+            __('Create new Authorization Page','nicappcrono'),   
+            array( $this, 'nicappcrono_render_settings_field' ), 
+            'nicappcrono_general_settings', 
+            'nicappcrono_general_section',
+            array ('type'=>'input', 
+                'subtype'=>'checkbox',  
+                'id'=>$this->plugin_name.'_CreateAuthPage',  		
+                'name'=>$this->plugin_name.'_CreateAuthPage',   
+                'required'=>'true', 
+                'get_options_list'=>'', 
+                'value_type'=>'normal', 
+                'wp_data'=>'option'
+            )
+        );
         
-        register_setting('nicappcrono_general_settings', 'nicappcrono_DataCenter');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_clientId');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_clientSecret');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_masterCalendar');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_masterAccessToken');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_masterRefreshToken');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_AuthorizationPageId');
-        register_setting('nicappcrono_general_settings', 'nicappcrono_CreateAuthPage');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_DataCenter');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_clientId');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_clientSecret');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_masterCalendar');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_masterAccessToken');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_masterRefreshToken');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_AuthorizationPageId');
+        register_setting('nicappcrono_general_settings', $this->plugin_name.'_CreateAuthPage');
     }
     
     /**
@@ -517,13 +730,13 @@ class Nicappcrono_Admin
      *
      */
     public function nicappcrono_display_general_account() {
-        echo '<p>';
+        ?><p><?php 
         _e('These settings refer to your Cronofy account for master calendar an apply to all Nic-app Crono functionality.','nicappcrono');
-        echo '</p><hr/><p>';
+        ?></p><hr/><p><?php 
         _e('Cronofy currently provides two data centers one in the USA, the default, and one in Germany. They are run as completely separate instances with no data flow between. This allows you to ensure data is kept within jurisdictional boundaries, eg. the EEA.','nicappcrono');
-        echo '</p><p>';
+        ?></p><p><?php 
         _e('Because there is no data flow then separate developer accounts need to be created on the instance that suits your requirements. Functionally the APIs are identical.','nicappcrono');
-        echo '</p><hr/>';
+        ?></p><hr/><?php
     }
     
     /**
@@ -573,10 +786,10 @@ class Nicappcrono_Admin
                 (get_post_meta( $postID , $this->plugin_name.'_Product_Display' , true )) ? _e('Yes', 'nicappcrono') : _e('No', 'nicappcrono');
                 break;
             case 'calendarID' :
-                echo get_post_meta( $postID , $this->plugin_name.'_calendarID' , true );
+                esc_html_e( get_post_meta( $postID , $this->plugin_name.'_calendarID' , true ) );
                 break;
             case 'Product_Id' :
-                echo (get_post_meta( $postID , $this->plugin_name.'_Product_Display' , true )) ? get_post_meta( $postID , $this->plugin_name.'_Product_Id' , true ) : '';
+                esc_html_e( (get_post_meta( $postID , $this->plugin_name.'_Product_Display' , true )) ? get_post_meta( $postID , $this->plugin_name.'_Product_Id' , true ) : '' );
                 break;
         }
     }
@@ -961,7 +1174,7 @@ class Nicappcrono_Admin
         if ( wp_next_scheduled ( 'nicappcronoCronJob' )) {
             $date_format = get_option( 'date_format' );
             $time_format = get_option( 'time_format' );
-            echo wp_date("{$date_format} {$time_format}", wp_next_scheduled( 'nicappcronoCronJob' ), get_option( 'timezone_string' ) );
+            esc_html_e( wp_date("{$date_format} {$time_format}", wp_next_scheduled( 'nicappcronoCronJob' ), get_option( 'timezone_string' ) ) );
         }else{
             _e( 'No scheduled jobs. No calendar entries will be checked.', 'nicappcrono' );
         }
@@ -983,8 +1196,8 @@ class Nicappcrono_Admin
 				<?php foreach ( $files as $file ) { ?>
 					<?php if( substr( $file , -4) == '.log'){?>
 						<li>
-							<input type="radio" id="age[]" name="logfile" value="<?php echo $file; ?>">
-							<?php echo $file . ' -> ' . date("d-m-Y H:i:s", filemtime( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  ) ); ?>
+							<input type="radio" id="age[]" name="logfile" value="<?php esc_html_e( $file ); ?>">
+							<?php esc_html_e( $file . ' -> ' . date("d-m-Y H:i:s", filemtime( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  ) ) ); ?>
 						</li>
 					<?php }?>
 				<?php }?>
@@ -1008,9 +1221,9 @@ class Nicappcrono_Admin
         if( isset( $_POST['logfile'] ) ){
             ?>
 			<hr/>
-			<h3><?php esc_html_e( $_POST['logfile'], 'nicappcronologfile' ); ?> </h3>
+			<h3><?php esc_html_e( $_POST['logfile'] ); ?> </h3>
 			<textarea id="nicappcronologfile" name="nicappcronologfile" rows="30" cols="180" readonly>
-				<?php echo file_get_contents( plugin_dir_path(dirname(__FILE__)) . "logs/" . $_POST['logfile'] ); ?>
+				<?php esc_html_e( ( file_get_contents( plugin_dir_path(dirname(__FILE__)) . "logs/" . $_POST['logfile'] ) ) ); ?>
 			</textarea>
 			<?php
         }

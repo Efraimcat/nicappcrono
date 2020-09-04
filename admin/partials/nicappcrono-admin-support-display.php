@@ -15,7 +15,7 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ).' '.$this->version;?></h2>
+	<h2><?php esc_html_e( get_admin_page_title() .' '.$this->version); ?></h2>
 	 <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
 	<?php settings_errors(); ?>
 	<h3><?php _e( 'Nic-app Crono Support', 'nicappcrono' )?></h3>

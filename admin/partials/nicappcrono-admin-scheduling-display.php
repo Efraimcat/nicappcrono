@@ -14,8 +14,8 @@
 ?>
 <div class="wrap">
 	<div id="icon-themes" class="icon32"></div>  
-	<h2><?php _e( 'Nic-app Crono Scheduling', 'nicappcrono' ); ?></h2>  
-    <!--NEED THE settings_errors below so that the errors/success messages are shown after submission - wasn't working once we started using add_menu_page and stopped using add_options_page so needed this-->
+	<h2><?php esc_html_e( get_admin_page_title() .' '.$this->version); ?></h2>
+	<?php settings_errors(); ?>
 	<p>
 		<?php _e( 'Next schedule (UTC): ', 'nicappcrono' ); ?>
 		<?php $this->scheduledJob(); ?>
@@ -27,4 +27,3 @@
 		<?php $this->ShowLogFile(); ?>
 	</p>	
 </div>
-
