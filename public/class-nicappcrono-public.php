@@ -96,7 +96,7 @@ class Nicappcrono_Public
 			    'meta_query' => array(
 			        array(
 			            'key' => $this->plugin_name.'_calendarID',
-			            'value' => $_POST['cal'][0],
+			            'value' => sanitize_text_field( $_POST['cal'][0] ),
 			            'compare' => 'LIKE'
 			        ),
                 )
@@ -109,10 +109,10 @@ class Nicappcrono_Public
 			if(!$exist_calendar){
 			    foreach($_POST['calendar_id'] as $key=>$calID){
 			        if ($calID == $_POST['cal'][0]){
-			            $calName= $_POST['calendar_name'][$key];
-			            $proName= $_POST['profile_name'][$key];
-			            $proID= $_POST['profile_id'][$key];
-			            $provName= $_POST['provider_name'][$key];
+			            $calName= sanitize_text_field( $_POST['calendar_name'][$key] );
+			            $proName= sanitize_text_field( $_POST['profile_name'][$key] );
+			            $proID= sanitize_text_field( $_POST['profile_id'][$key] );
+			            $provName= sanitize_text_field( $_POST['provider_name'][$key] );
 			        }
 			    }
 			    $newCalendar = wp_insert_post( array(
@@ -123,10 +123,10 @@ class Nicappcrono_Public
 			        'post_author'   => wp_get_current_user()
 			        )
 			    );
-			    update_post_meta($newCalendar, $this->plugin_name.'_calendarID',$_POST['cal'][0]);
-			    update_post_meta($newCalendar, $this->plugin_name.'_calendarName',$calName);
-			    update_post_meta($newCalendar, $this->plugin_name.'_AccessToken',$_POST['access_token']);
-			    update_post_meta($newCalendar, $this->plugin_name.'_RefreshToken',$_POST['refresh_token']);
+			    update_post_meta($newCalendar, $this->plugin_name.'_calendarID', sanitize_text_field( $_POST['cal'][0]) );
+			    update_post_meta($newCalendar, $this->plugin_name.'_calendarName', $calName);
+			    update_post_meta($newCalendar, $this->plugin_name.'_AccessToken', sanitize_text_field( $_POST['access_token'] ) );
+			    update_post_meta($newCalendar, $this->plugin_name.'_RefreshToken', sanitize_text_field( $_POST['refresh_token'] ) );
 				update_post_meta($newCalendar, $this->plugin_name.'_ProfileName',$proName);
 				update_post_meta($newCalendar, $this->plugin_name.'_ProfileID',$proID);
 				update_post_meta($newCalendar, $this->plugin_name.'_ProviderID',$provName);

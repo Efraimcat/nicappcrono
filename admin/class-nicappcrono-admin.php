@@ -428,7 +428,7 @@ class Nicappcrono_Admin
     public function displayPluginAdminSupport(){
         if(isset($_GET['error_message'])){
             add_action('admin_notices', array($this,'pluginNameSettingsMessages'));
-            do_action( 'admin_notices', $_GET['error_message'] );
+            do_action( 'admin_notices', sanitize_text_field( $_GET['error_message'] ) );
         }
         require_once 'partials/'.$this->plugin_name.'-admin-support-display.php';
     }
@@ -1008,7 +1008,7 @@ class Nicappcrono_Admin
         if( isset( $_POST['logfile'] ) ){
             ?>
 			<hr/>
-			<h3><?php echo $_POST['logfile']; ?> </h3>
+			<h3><?php esc_html_e( $_POST['logfile'], 'nicappcronologfile' ); ?> </h3>
 			<textarea id="nicappcronologfile" name="nicappcronologfile" rows="30" cols="180" readonly>
 				<?php echo file_get_contents( plugin_dir_path(dirname(__FILE__)) . "logs/" . $_POST['logfile'] ); ?>
 			</textarea>
@@ -1060,7 +1060,6 @@ class Nicappcrono_Admin
         if(is_array( $message ) ) {
             $message = json_encode( $message );
         }
-        date_default_timezone_set("Europe/Paris");
         $time = date("Y-m-d H:i:s");
         $ban = "#$time: $message\r\n";
         $file = plugin_dir_path(dirname(__FILE__)) . 'logs/nicappcrono-log-' . date("Y-m-d") . '.log';
