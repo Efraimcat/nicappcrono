@@ -87,7 +87,7 @@ class Nicappcrono_Public
      * @since    1.0.0
      */
     public function NicappAuthShortcode( $atts, $content = "" ) {
-        if( strlen( get_option( 'nicappcrono_clientId' ) ) < 25 ) return;
+        if( strlen( get_option( $this->plugin_name.'_clientId' ) ) < 25 ) return;
         if ( !get_post_status ( get_option( $this->plugin_name.'_AuthorizationPageId') ) ) return; 
         $redirect_uri = get_permalink( get_option( $this->plugin_name.'_AuthorizationPageId' ) );
 		if( isset( $_POST['access_token'] ) ){
@@ -122,22 +122,22 @@ class Nicappcrono_Public
 			        'post_status' => 'publish'
 			        )
 			    );
-			    update_post_meta($newCalendar, $this->plugin_name.'_calendarID', sanitize_text_field( $_POST['cal'][0]) );
-			    update_post_meta($newCalendar, $this->plugin_name.'_calendarName', $calName);
-			    update_post_meta($newCalendar, $this->plugin_name.'_AccessToken', sanitize_text_field( $_POST['access_token'] ) );
-			    update_post_meta($newCalendar, $this->plugin_name.'_RefreshToken', sanitize_text_field( $_POST['refresh_token'] ) );
-				update_post_meta($newCalendar, $this->plugin_name.'_ProfileName',$proName);
-				update_post_meta($newCalendar, $this->plugin_name.'_ProfileID',$proID);
-				update_post_meta($newCalendar, $this->plugin_name.'_ProviderID',$provName);
+			    update_post_meta( $newCalendar, $this->plugin_name.'_calendarID', sanitize_text_field( $_POST['cal'][0]) );
+			    update_post_meta( $newCalendar, $this->plugin_name.'_calendarName', $calName );
+			    update_post_meta( $newCalendar, $this->plugin_name.'_AccessToken', sanitize_text_field( $_POST['access_token'] ) );
+			    update_post_meta( $newCalendar, $this->plugin_name.'_RefreshToken', sanitize_text_field( $_POST['refresh_token'] ) );
+				update_post_meta( $newCalendar, $this->plugin_name.'_ProfileName', $proName );
+				update_post_meta( $newCalendar, $this->plugin_name.'_ProfileID', $proID );
+				update_post_meta( $newCalendar, $this->plugin_name.'_ProviderID', $provName );
 			}
 			// Client Output
 ?>
 			<div class="wrap">
 				<div class="nicappcrono-auth-container-goodbye">
-					<h2><?php _e( 'Authorization Processed', 'nicappcrono' ) ?></h2>
-					<p><?php _e( 'Thank you for authorizing access to your calendar.', 'nicappcrono' )?></p>
-					<p><?php ($exist_calendar) ? _e( 'Your calendar was already authorized.', 'nicappcrono' ) : '' ;?></p>
-					<p><?php _e( 'Your inputs have been saved.', 'nicappcrono' )?></p>
+					<h2><?php _e( 'Authorization Processed', $this->plugin_name ); ?></h2>
+					<p><?php _e( 'Thank you for authorizing access to your calendar.', $this->plugin_name ); ?></p>
+					<p><?php ( $exist_calendar ) ? _e( 'Your calendar was already authorized.', $this->plugin_name ) : '' ; ?></p>
+					<p><?php _e( 'Your inputs have been saved.', $this->plugin_name ); ?></p>
 				</div>
 			</div>
 <?php 
@@ -145,7 +145,7 @@ class Nicappcrono_Public
 			$params = array( 
 			    "client_id" => get_option( $this->plugin_name.'_clientId' )
 			);
-		    if( get_option( 'nicappcrono_DataCenter' ) ) $params["data_center"] = 'de';
+			if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
 		    $cronofy = new Cronofy( $params );
             $auth = $cronofy->getAuthorizationURL( array(
                 'redirect_uri' => $redirect_uri, 
@@ -163,15 +163,15 @@ class Nicappcrono_Public
 		}else{
 		    $params = array(
 		        "client_id" => get_option( $this->plugin_name.'_clientId' ), 
-		        "client_secret" => get_option( $this->plugin_name.'_clientSecret')
+		        "client_secret" => get_option( $this->plugin_name.'_clientSecret' )
 		    );
-		    if( get_option( 'nicappcrono_DataCenter' ) ) $params["data_center"] = 'de';
+		    if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
             $cronofy = new Cronofy( $params );
             $cronofy->request_token( array(
                 'code' => sanitize_text_field( $_GET['code'] ), 
                 'redirect_uri' => $redirect_uri
             ));
-			$obj = json_decode(json_encode($cronofy));
+			$obj = json_decode( json_encode( $cronofy ) );
 			
 			$params = array(
 			    "client_id" => get_option( $this->plugin_name.'_clientId' ), 
@@ -179,18 +179,18 @@ class Nicappcrono_Public
 			    "access_token" => $obj->access_token, 
 			    "refresh_token" => $obj->refresh_token
 			);
-			if( get_option( 'nicappcrono_DataCenter' ) ) $params["data_center"] = 'de';
+			if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
 			$calendar = new Cronofy( $params );
 			$calendar->refresh_token();
             $calendars = $calendar->list_calendars();
 ?>
 			<div class="wrap">
 				<div class="nicappcrono-auth-container">
-					<h2><?php _e('Calendars','nicappcrono') ?></h2>
-					<p><?php _e('Please choose the calendar you wish to share','nicappcrono')?></p>
+					<h2><?php _e( 'Calendars', $this->plugin_name ); ?></h2>
+					<p><?php _e( 'Please choose the calendar you wish to share', $this->plugin_name ); ?></p>
 					<form action="" method="post">
 						<table>
-							<?php foreach($calendars['calendars'] as $entry){?>
+							<?php foreach( $calendars['calendars'] as $entry ){ ?>
 								<tr>
 									<td>
 										<input type="radio" name="cal[]" value="<?php esc_html_e( $entry['calendar_id'] ); ?>">
@@ -201,7 +201,7 @@ class Nicappcrono_Public
 										<input type="hidden" name="provider_name[]" value="<?php esc_html_e( $entry['provider_name'] ); ?>">
 									</td>
 									<td>
-										<?php esc_html_e( $entry['calendar_name'] );?>
+										<?php esc_html_e( $entry['calendar_name'] ); ?>
 									</td>
 								</tr>
 							<?php }?>
@@ -209,7 +209,7 @@ class Nicappcrono_Public
 						<input type="hidden" name="access_token" value="<?php esc_html_e( $obj->access_token ); ?>">
 						<input type="hidden" name="refresh_token" value="<?php esc_html_e( $obj->refresh_token ); ?>">
 						<div class="nicappcrono-send-calendar">
-							<input type="submit" value="<?php _e('Send','nicappcrono');?>">
+							<input type="submit" value="<?php _e( 'Send', $this->plugin_name ); ?>">
 						</div>
 					</form>
 				</div>

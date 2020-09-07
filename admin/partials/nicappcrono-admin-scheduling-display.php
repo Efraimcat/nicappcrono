@@ -14,15 +14,15 @@
 ?>
 <div class="wrap">
 	<div id="icon-themes" class="icon32"></div>  
-	<h2><?php esc_html_e( get_admin_page_title() .' '.$this->version); ?></h2>
+	<h2><?php esc_html_e( get_admin_page_title() .' '.$this->version ); ?></h2>
 	<?php settings_errors(); ?>
 	<p>
-		<?php _e( 'Next schedule (UTC): ', 'nicappcrono' ); ?>
+		<?php _e( 'Next schedule (UTC): ', $this->plugin_name ); ?>
 		<?php $this->scheduledJob(); ?>
 	</p>
 	<hr/>
 	<p>
-		<?php _e( 'Log files: ', 'nicappcrono' ); ?>
+		<?php _e( 'Log files: ', $this->plugin_name ); ?>
 		<?php $this->logFiles(); ?>
 		<?php $this->ShowLogFile(); ?>
 	</p>	
