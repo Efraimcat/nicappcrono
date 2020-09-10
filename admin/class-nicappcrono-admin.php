@@ -821,7 +821,7 @@ class Nicappcrono_Admin
         $fechaFrom = new DateTime();
         $fechaTo = new DateTime();
         $fechaTo->add( new DateInterval( 'P180D' ) );
-        $MasterEvents = $this->ReadMasterCalendar( $fechaFrom, $fechaTo );
+        $MasterEvents = $this->ReadCalendar( 0, $fechaFrom, $fechaTo, true );
         $loop = new WP_Query( array( 'post_type' => 'nicappcronocalendars' , 'posts_per_page' => 5000 , 'orderby' => 'rand', ) );
         while ( $loop->have_posts() ) : $loop->the_post();
             $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
@@ -839,43 +839,6 @@ class Nicappcrono_Admin
     }
     
     /**
-     * Read mastercalendar content.
-     *
-     * @since    1.0.0
-     * @access private
-     * @param DateTime $fechaFrom
-     *            Date for the begining of the search.
-     * @param DateTime $fechaTo
-     *            Date for the end of the search.
-     * @return mixed false|array $eventos
-     *            Array of events if calendar exists. Otherwise false.
-     */
-    private function ReadMasterCalendar( $fechaFrom, $fechaTo ){
-		if( strlen( get_option( $this->plugin_name.'_clientId' ) ) < 25 ) return false;
-        $params = array(
-            "client_id" => get_option( $this->plugin_name.'_clientId' ),
-            "client_secret" => get_option( $this->plugin_name.'_clientSecret' ),
-            "access_token" => get_option( $this->plugin_name.'_masterAccessToken' ),
-            "refresh_token" => get_option( $this->plugin_name.'_masterRefreshToken' ),
-        );
-        if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-        $mastercronofy = new Cronofy\Cronofy( $params );
-        $mastercronofy->refreshToken();
-        $masterevents = $mastercronofy->readEvents( array(
-            "from" => $fechaFrom->format('Y-m-d'),
-            "to" => $fechaTo->format('Y-m-d'),
-            "tzid" => "Etc/UTC",
-            "include_managed" => true,
-            "calendar_ids" => get_option( $this->plugin_name.'_masterCalendar' )
-        ) );
-        $eventos = [];
-        foreach ($masterevents as $event){
-            $eventos[] = $event;
-        }
-        return $eventos;
-    }
-    
-    /**
      * Read calendar content.
      *
      * @since    1.0.0
@@ -886,28 +849,36 @@ class Nicappcrono_Admin
      *            Date for the begining of the search.
      * @param DateTime $fecha_to
      *            Date for the end of the search.
+     * @param boolean $master
+     *            Set to true to read master calendar.           
      * @return mixed false|array $eventos
      *            Array of events if calendar exists. Otherwise false.
      */
-    private function ReadCalendar( $postID, $fechaFrom, $fechaTo ){
+    private function ReadCalendar( $postID, $fechaFrom, $fechaTo, $master = false ){
         if( strlen( get_option( $this->plugin_name.'_clientId' ) ) < 25 ) return false;
-        if( strlen( get_post_meta ( $postID, $this->plugin_name.'_calendarID', true ) ) < 5 ) return false;
+        if( !$master ) if( strlen( get_post_meta ( $postID, $this->plugin_name.'_calendarID', true ) ) < 5 ) return false;
         $params = array(
             "client_id" => get_option( $this->plugin_name.'_clientId' ),
             "client_secret" => get_option( $this->plugin_name.'_clientSecret' ),
-            "access_token" => get_option( $this->plugin_name.'_masterAccessToken' ),
-            "refresh_token" => get_option( $this->plugin_name.'_masterRefreshToken' ),
         );
+        if( $master ){
+            $params["access_token"] = get_option( $this->plugin_name.'_masterAccessToken' );
+            $params["refresh_token"] = get_option( $this->plugin_name.'_masterRefreshToken' );
+        }else{
+            $params["access_token"] = get_post_meta ( $postID, $this->plugin_name.'_AccessToken', true ) ;
+            $params["refresh_token"] = get_post_meta ( $postID, $this->plugin_name.'_RefreshToken', true ) ;
+        }
         if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
         $cronofy = new Cronofy\Cronofy( $params );
         $cronofy->refreshToken();
-        $events = $cronofy->readEvents( array(
+        $params = array(
             "from" => $fechaFrom->format('Y-m-d'),
             "to" => $fechaTo->format('Y-m-d'),
             "tzid" => "Etc/UTC",
             "include_managed" => true,
-            "calendar_ids" => get_post_meta ( $postID, $this->plugin_name.'_calendarID', true )
-        ) );
+        );
+        ( $master ) ?  $params["calendar_ids"] = get_option( $this->plugin_name.'_masterCalendar' ) : $params["calendar_ids"] = get_post_meta ( $postID, $this->plugin_name.'_calendarID', true ) ;
+        $events = $cronofy->readEvents( $params );
         $eventos = [];
         foreach ($events as $event){
             $eventos[] = $event;

@@ -31,7 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'NICAPPCRONO_VERSION', '1.0.0' );
 
 /**
- * Currently only php 7.1 and hiegher is supported
+ * Currently only php 7.1 and higher is supported
  * 
  */
 if( version_compare( phpversion(), '7.1.0', '<')) {
