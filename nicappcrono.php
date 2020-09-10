@@ -31,6 +31,15 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'NICAPPCRONO_VERSION', '1.0.0' );
 
 /**
+ * Currently only php 7.1 and hiegher is supported
+ * 
+ */
+if( version_compare( phpversion(), '7.1.0', '<')) {
+    // php version isn't high enough
+    die;
+}
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-nicappcrono-activator.php
  */

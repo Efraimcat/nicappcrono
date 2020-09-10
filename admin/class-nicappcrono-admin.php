@@ -820,18 +820,18 @@ class Nicappcrono_Admin
         $this->custom_logs( 'UpdateMasterCalendar Start Cron Session' );
         $fechaFrom = new DateTime();
         $fechaTo = new DateTime();
-        $fechaTo->add( new DateInterval( 'P180D' ));
+        $fechaTo->add( new DateInterval( 'P180D' ) );
         $MasterEvents = $this->ReadMasterCalendar( $fechaFrom, $fechaTo );
         $loop = new WP_Query( array( 'post_type' => 'nicappcronocalendars' , 'posts_per_page' => 5000 , 'orderby' => 'rand', ) );
         while ( $loop->have_posts() ) : $loop->the_post();
-        $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
-        $CalendarEvents = $this->ReadCalendar( $loop->post->ID, $fechaFrom, $fechaTo );
-        if( $CalendarEvents ){
-            $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-            $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-            $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-            $this->UpdateExternalEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
-        }
+            $this->custom_logs( 'Calendar $postID: ' . $loop->post->ID );
+            $CalendarEvents = $this->ReadCalendar( $loop->post->ID, $fechaFrom, $fechaTo );
+            if( $CalendarEvents ){
+                $this->CreateMasterEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+                $this->UpdateExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+                $this->DeleteExistingEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+                $this->UpdateExternalEvents( $loop->post->ID, $MasterEvents, $CalendarEvents );
+            }
         endwhile;
         wp_reset_query();
         $this->custom_logs( 'UpdateMasterCalendar End Cron Session' );
@@ -851,7 +851,7 @@ class Nicappcrono_Admin
      *            Array of events if calendar exists. Otherwise false.
      */
     private function ReadMasterCalendar( $fechaFrom, $fechaTo ){
-        if( strlen( get_option( $this->plugin_name.'_clientId' ) ) < 25 ) return false;
+		if( strlen( get_option( $this->plugin_name.'_clientId' ) ) < 25 ) return false;
         $params = array(
             "client_id" => get_option( $this->plugin_name.'_clientId' ),
             "client_secret" => get_option( $this->plugin_name.'_clientSecret' ),
@@ -859,9 +859,9 @@ class Nicappcrono_Admin
             "refresh_token" => get_option( $this->plugin_name.'_masterRefreshToken' ),
         );
         if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-        $mastercronofy = new Cronofy( $params );
-        $mastercronofy->refresh_token();
-        $masterevents = $mastercronofy->read_events( array(
+        $mastercronofy = new Cronofy\Cronofy( $params );
+        $mastercronofy->refreshToken();
+        $masterevents = $mastercronofy->readEvents( array(
             "from" => $fechaFrom->format('Y-m-d'),
             "to" => $fechaTo->format('Y-m-d'),
             "tzid" => "Etc/UTC",
@@ -899,9 +899,9 @@ class Nicappcrono_Admin
             "refresh_token" => get_option( $this->plugin_name.'_masterRefreshToken' ),
         );
         if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-        $cronofy = new Cronofy( $params );
-        $cronofy->refresh_token();
-        $events = $cronofy->read_events( array(
+        $cronofy = new Cronofy\Cronofy( $params );
+        $cronofy->refreshToken();
+        $events = $cronofy->readEvents( array(
             "from" => $fechaFrom->format('Y-m-d'),
             "to" => $fechaTo->format('Y-m-d'),
             "tzid" => "Etc/UTC",
@@ -1083,9 +1083,9 @@ class Nicappcrono_Admin
             "refresh_token" => get_option( $this->plugin_name.'_masterRefreshToken' ),
         );
         if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-        $mastercronofy = new Cronofy( $params );
-        $mastercronofy->refresh_token();
-        $mastercronofy->upsert_event( array(
+        $mastercronofy = new Cronofy\Cronofy( $params );
+        $mastercronofy->refreshToken();
+        $mastercronofy->upsertEvent( array(
             "calendar_id" => get_option( $this->plugin_name.'_masterCalendar' ),
             "event_id"	=> $eventID,
             "summary" => $summary,
@@ -1115,9 +1115,9 @@ class Nicappcrono_Admin
             "refresh_token" => get_option( $this->plugin_name.'_masterRefreshToken' ),
         );
         if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-        $mastercronofy = new Cronofy( $params );
-        $mastercronofy->refresh_token();
-        $mastercronofy->delete_event( array(
+        $mastercronofy = new Cronofy\Cronofy( $params );
+        $mastercronofy->refreshToken();
+        $mastercronofy->deleteEvent( array(
             "calendar_id" => get_option( $this->plugin_name.'_masterCalendar' ),
             "event_id"	=> $eventID,
         ) );

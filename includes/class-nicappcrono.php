@@ -126,7 +126,11 @@ class Nicappcrono {
 		 * Cronofy class.
 		 * 
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'cronofy/cronofy.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'Cronofy/Cronofy.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'Cronofy/Exception/CronofyException.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'Cronofy/Http/HttpRequest.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'Cronofy/Http/CurlRequest.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'Cronofy/PagedResultIterator.php';
 		
 		$this->loader = new Nicappcrono_Loader();
 
@@ -162,7 +166,7 @@ class Nicappcrono {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action('nicappcronoCronJob', $plugin_admin, 'nicappcronoCron');
+		$this->loader->add_action( 'nicappcronoCronJob', $plugin_admin, 'nicappcronoCron' );
 		
 	}
 

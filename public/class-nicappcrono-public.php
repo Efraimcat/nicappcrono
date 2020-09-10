@@ -146,7 +146,7 @@ class Nicappcrono_Public
 			    "client_id" => get_option( $this->plugin_name.'_clientId' )
 			);
 			if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-		    $cronofy = new Cronofy( $params );
+		    $cronofy = new Cronofy\Cronofy( $params );
             $auth = $cronofy->getAuthorizationURL( array(
                 'redirect_uri' => $redirect_uri, 
                 'scope' => array(
@@ -166,8 +166,8 @@ class Nicappcrono_Public
 		        "client_secret" => get_option( $this->plugin_name.'_clientSecret' )
 		    );
 		    if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-            $cronofy = new Cronofy( $params );
-            $cronofy->request_token( array(
+            $cronofy = new Cronofy\Cronofy( $params );
+            $cronofy->requestToken( array(
                 'code' => sanitize_text_field( $_GET['code'] ), 
                 'redirect_uri' => $redirect_uri
             ));
@@ -176,13 +176,13 @@ class Nicappcrono_Public
 			$params = array(
 			    "client_id" => get_option( $this->plugin_name.'_clientId' ), 
 			    "client_secret" => get_option( $this->plugin_name.'_clientSecret' ), 
-			    "access_token" => $obj->access_token, 
-			    "refresh_token" => $obj->refresh_token
+			    "access_token" => $obj->accessToken, 
+			    "refresh_token" => $obj->refreshToken
 			);
 			if( get_option( $this->plugin_name.'_DataCenter' ) ) $params["data_center"] = 'de';
-			$calendar = new Cronofy( $params );
-			$calendar->refresh_token();
-            $calendars = $calendar->list_calendars();
+			$calendar = new Cronofy\Cronofy( $params );
+			$calendar->refreshToken();
+			$calendars = $calendar->listCalendars();
 ?>
 			<div class="wrap">
 				<div class="nicappcrono-auth-container">
@@ -206,8 +206,8 @@ class Nicappcrono_Public
 								</tr>
 							<?php }?>
 						</table>
-						<input type="hidden" name="access_token" value="<?php esc_html_e( $obj->access_token ); ?>">
-						<input type="hidden" name="refresh_token" value="<?php esc_html_e( $obj->refresh_token ); ?>">
+						<input type="hidden" name="access_token" value="<?php esc_html_e( $obj->accessToken ); ?>">
+						<input type="hidden" name="refresh_token" value="<?php esc_html_e( $obj->refreshToken ); ?>">
 						<div class="nicappcrono-send-calendar">
 							<input type="submit" value="<?php _e( 'Send', $this->plugin_name ); ?>">
 						</div>
