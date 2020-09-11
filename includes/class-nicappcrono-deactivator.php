@@ -15,22 +15,24 @@
  *
  * This class defines all code necessary to run during the plugin's deactivation.
  *
- * @since      1.0.0
- * @package    Nicappcrono
+ * @since 1.0.0
+ * @package Nicappcrono
  * @subpackage Nicappcrono/includes
- * @author     Efraim Bayarri <efraim@efraim.cat>
+ * @author Efraim Bayarri <efraim@efraim.cat>
  */
-class Nicappcrono_Deactivator {
+class Nicappcrono_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
-		wp_clear_scheduled_hook( 'nicappcronoCronJob' );
-	}
-
+    /**
+     * Short Description.
+     * (use period)
+     *
+     * Long Description.
+     *
+     * @since 1.0.0
+     */
+    public static function deactivate()
+    {
+        wp_clear_scheduled_hook('nicappcronoCronJob');
+    }
 }
