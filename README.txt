@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: efraimbayarri
 Donate link: https://efraim.cat
-Tags: calendars, woocommerce, cronofy
+Tags: calendars, woocommerce, cronofy, multiple calendars, synchronization
 Requires at least: 5.0
 Tested up to: 5.5.1
 Stable tag: 1.0
@@ -18,10 +18,20 @@ Plugins developed for WordPress and WooCommerce usually work by connecting to a 
 
 With this plugin with the help of Cronofy you can solve this problem, keeping information from multiple sources in a single calendar.
 
+Requirements:
+
+php 7.1
+
 == Installation ==
+
+For detailed installation instructions, please read the [standard installation procedure for WordPress plugins](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins).
 
 == Frequently Asked Questions ==
 
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.0 =
+
+  * Initial release
