@@ -4,7 +4,7 @@ Donate link: https://efraim.cat
 Tags: calendars, woocommerce, cronofy, multiple calendars, synchronization
 Requires at least: 5.0
 Tested up to: 5.5.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,10 @@ For detailed installation instructions, please read the [standard installation p
 
 == Changelog ==
 
+= 1.0.1 =
+
+  * Cronofy API update version 1.1.5
+   
 = 1.0.0 =
 
   * Initial release

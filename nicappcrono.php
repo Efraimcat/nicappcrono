@@ -9,7 +9,7 @@
  * Plugin Name:       Nic-app Crono
  * Plugin URI:        https://nic-app.com/nic-app-crono/
  * Description:       Nic-app Crono is a plugin that allows you to unify different calendars (Google Calendar, Apple iCloud, Exchange, Office 365 / Outlook) into a single calendar.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Efraim Bayarri
  * Author URI:        https://efraim.cat
  * License:           GPL-2.0+
@@ -28,7 +28,7 @@ if (! defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('NICAPPCRONO_VERSION', '1.0.0');
+define('NICAPPCRONO_VERSION', '1.0.1');
 
 /**
  * Currently only php 7.1 and higher is supported
