@@ -1231,13 +1231,14 @@ class Nicappcrono_Admin
     protected function nicappcronoMaintenance()
     {
         $this->custom_logs('nicappcronoMaintenance begins');
-        $files = scandir(plugin_dir_path(dirname(__FILE__)) . 'logs/');
+        $upload_dir = wp_upload_dir();
+        $files = scandir( $upload_dir['basedir'] . '/nicappcrono-logs' );
         foreach ($files as $file) {
             if (substr($file, - 4) == '.log') {
-                $this->custom_logs('Logfile: ' . plugin_dir_path(dirname(__FILE__)) . 'logs/' . $file . ' -> ' . date("d-m-Y H:i:s", filemtime(plugin_dir_path(dirname(__FILE__)) . "logs/" . $file)));
-                if (time() > strtotime('+1 week', filemtime(plugin_dir_path(dirname(__FILE__)) . "logs/" . $file))) {
+                $this->custom_logs('Logfile: ' . $upload_dir['basedir'] . '/nicappcrono-logs/' . $file . ' -> ' . date("d-m-Y H:i:s", filemtime( $upload_dir['basedir'] . '/nicappcrono-logs/' . $file)));
+                if (time() > strtotime('+1 week', filemtime( $upload_dir['basedir'] . '/nicappcrono-logs/' . $file))) {
                     $this->custom_logs('Old logfile');
-                    unlink(plugin_dir_path(dirname(__FILE__)) . "logs/" . $file);
+                    unlink( $upload_dir['basedir'] . '/nicappcrono-logs/' . $file);
                 }
             }
         }
@@ -1277,7 +1278,8 @@ class Nicappcrono_Admin
      */
     private function logFiles()
     {
-        $files = scandir(plugin_dir_path(dirname(__FILE__)) . 'logs/');
+        $upload_dir = wp_upload_dir();
+        $files = scandir( $upload_dir['basedir'] . '/nicappcrono-logs' );
         ?>
 <form action="" method="post">
 	<ul>	
@@ -1285,7 +1287,7 @@ class Nicappcrono_Admin
 					<?php if( substr( $file , -4) == '.log'){?>
 						<li><input type="radio" id="age[]" name="logfile"
 			value="<?php esc_html_e( $file ); ?>">
-							<?php esc_html_e( $file . ' -> ' . date("d-m-Y H:i:s", filemtime( plugin_dir_path(dirname(__FILE__)) . "logs/" . $file  ) ) ); ?>
+							<?php esc_html_e( $file . ' -> ' . date("d-m-Y H:i:s", filemtime( $upload_dir['basedir'] . '/nicappcrono-logs/' . $file  ) ) ); ?>
 						</li>
 					<?php }?>
 				<?php }?>
@@ -1309,13 +1311,14 @@ class Nicappcrono_Admin
      */
     private function ShowLogFile()
     {
+        $upload_dir = wp_upload_dir();
         if (isset($_POST['logfile'])) {
             ?>
 <hr />
 <h3><?php esc_html_e( $_POST['logfile'] ); ?> </h3>
 <textarea id="nicappcronologfile" name="nicappcronologfile" rows="30"
 	cols="180" readonly>
-				<?php esc_html_e( ( file_get_contents( plugin_dir_path(dirname(__FILE__)) . "logs/" . $_POST['logfile'] ) ) ); ?>
+				<?php esc_html_e( ( file_get_contents( $upload_dir['basedir'] . '/nicappcrono-logs/' . $_POST['logfile'] ) ) ); ?>
 			</textarea>
 <?php
         }
@@ -1364,12 +1367,16 @@ class Nicappcrono_Admin
      */
     private function custom_logs($message)
     {
+        $upload_dir = wp_upload_dir();
         if (is_array($message)) {
             $message = json_encode($message);
         }
+        if (!file_exists( $upload_dir['basedir'] . '/nicappcrono-logs') ) {
+            mkdir( $upload_dir['basedir'] . '/nicappcrono-logs' );
+        }
         $time = date("Y-m-d H:i:s");
         $ban = "#$time: $message\r\n";
-        $file = plugin_dir_path(dirname(__FILE__)) . 'logs/nicappcrono-log-' . date("Y-m-d") . '.log';
+        $file = $upload_dir['basedir'] . '/nicappcrono-logs/nicappcrono-log-' . date("Y-m-d") . '.log';
         $open = fopen($file, "a");
         $write = fputs($open, $ban);
         fclose( $open );
