@@ -1,6 +1,5 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types = 1);
 namespace Cronofy;
 
 use Cronofy\Exception\CronofyException;
@@ -8,54 +7,44 @@ use Cronofy\Http\CurlRequest;
 
 class Cronofy
 {
-
     const USERAGENT = 'Cronofy PHP 1.0.0';
-
     const API_VERSION = 'v1';
 
     public $apiRootUrl;
-
     public $appRootUrl;
-
     public $hostDomain;
 
     public $clientId;
-
     public $clientSecret;
-
     public $accessToken;
-
     public $refreshToken;
-
     public $expiresIn;
-
     public $tokens;
-
     public $httpClient;
 
     public function __construct($config = [])
     {
-        if (! function_exists('curl_init')) {
+        if (!function_exists('curl_init')) {
             throw new CronofyException("missing cURL extension", 1);
         }
 
-        if (! empty($config["client_id"])) {
+        if (!empty($config["client_id"])) {
             $this->clientId = $config["client_id"];
         }
-        if (! empty($config["client_secret"])) {
+        if (!empty($config["client_secret"])) {
             $this->clientSecret = $config["client_secret"];
         }
-        if (! empty($config["access_token"])) {
+        if (!empty($config["access_token"])) {
             $this->accessToken = $config["access_token"];
         }
-        if (! empty($config["refresh_token"])) {
+        if (!empty($config["refresh_token"])) {
             $this->refreshToken = $config["refresh_token"];
         }
-        if (! empty($config["expires_in"])) {
+        if (!empty($config["expires_in"])) {
             $this->expiresIn = $config["expires_in"];
         }
 
-        if (! empty($config["http_client"])) {
+        if (!empty($config["http_client"])) {
             $this->httpClient = $config["http_client"];
         } else {
             $this->httpClient = new CurlRequest(self::USERAGENT);
@@ -141,34 +130,36 @@ class Cronofy
     public function getAuthorizationURL($params)
     {
         /*
-         * Array $params : An array of additional paramaters
-         * redirect_uri : String The HTTP or HTTPS URI you wish the user's authorization request decision to be redirected to. REQUIRED
-         * scope : An array of scopes to be granted by the access token. Possible scopes detailed in the Cronofy API documentation. REQUIRED
-         * delegated_scope : Array. An array of scopes to be granted that will be allowed to be granted to the account's users. OPTIONAL
-         * state : String A value that will be returned to you unaltered along with the user's authorization request decision. OPTIONAL
-         * avoid_linking : Boolean when true means we will avoid linking calendar accounts together under one set of credentials. OPTIONAL
-         * link_token : String The link token to explicitly link to a pre-existing account. OPTIONAL
-         *
-         * Response :
-         * String $url : The URL to authorize your access to the Cronofy API
+          Array $params : An array of additional paramaters
+          redirect_uri : String The HTTP or HTTPS URI you wish the user's authorization request decision to be redirected to. REQUIRED
+          scope : An array of scopes to be granted by the access token. Possible scopes detailed in the Cronofy API documentation. REQUIRED
+          delegated_scope : Array. An array of scopes to be granted that will be allowed to be granted to the account's users. OPTIONAL
+          state : String A value that will be returned to you unaltered along with the user's authorization request decision. OPTIONAL
+          avoid_linking : Boolean when true means we will avoid linking calendar accounts together under one set of credentials. OPTIONAL
+          link_token : String The link token to explicitly link to a pre-existing account. OPTIONAL
+
+          Response :
+          String $url : The URL to authorize your access to the Cronofy API
          */
+
         $scope_list = rawurlencode(join(" ", $params['scope']));
 
-        $url = $this->appRootUrl . "/oauth/authorize?response_type=code&client_id=" . $this->clientId . "&redirect_uri=" . urlencode($params['redirect_uri']) . "&scope=" . $scope_list;
+        $url = $this->appRootUrl . "/oauth/authorize?response_type=code&client_id="
+            . $this->clientId . "&redirect_uri=" . urlencode($params['redirect_uri']) . "&scope=" . $scope_list;
 
-        if (! empty($params['state'])) {
+        if (!empty($params['state'])) {
             $url .= "&state=" . $params['state'];
         }
-        if (! empty($params['avoid_linking'])) {
+        if (!empty($params['avoid_linking'])) {
             $url .= "&avoid_linking=" . $params['avoid_linking'];
         }
-        if (! empty($params['link_token'])) {
+        if (!empty($params['link_token'])) {
             $url .= "&link_token=" . $params['link_token'];
         }
-        if (! empty($params['delegated_scope'])) {
+        if (!empty($params['delegated_scope'])) {
             $url .= "&delegated_scope=" . rawurlencode(join(" ", $params['delegated_scope']));
         }
-        if (! empty($params['provider_name'])) {
+        if (!empty($params['provider_name'])) {
             $url .= "&provider_name=" . $params['provider_name'];
         }
 
@@ -178,35 +169,62 @@ class Cronofy
     public function getEnterpriseConnectAuthorizationUrl($params)
     {
         /*
-         * Array $params : An array of additional parameters
-         * redirect_uri : String. The HTTP or HTTPS URI you wish the user's authorization request decision to be redirected to. REQUIRED
-         * scope : Array. An array of scopes to be granted by the access token. Possible scopes detailed in the Cronofy API documentation. REQUIRED
-         * delegated_scope : Array. An array of scopes to be granted that will be allowed to be granted to the account's users. REQUIRED
-         * state : String. A value that will be returned to you unaltered along with the user's authorization request decsion. OPTIONAL
-         *
-         * Response :
-         * $url : String. The URL to authorize your enterprise connect access to the Cronofy API
+          Array $params : An array of additional parameters
+          redirect_uri : String. The HTTP or HTTPS URI you wish the user's authorization request decision to be redirected to. REQUIRED
+          scope : Array. An array of scopes to be granted by the access token. Possible scopes detailed in the Cronofy API documentation. REQUIRED
+          delegated_scope : Array. An array of scopes to be granted that will be allowed to be granted to the account's users. REQUIRED
+          state : String. A value that will be returned to you unaltered along with the user's authorization request decsion. OPTIONAL
+
+          Response :
+          $url : String. The URL to authorize your enterprise connect access to the Cronofy API
          */
+
         $scope_list = rawurlencode(join(" ", $params['scope']));
         $delegated_scope_list = rawurlencode(join(" ", $params['delegated_scope']));
 
-        $url = $this->appRootUrl . "/enterprise_connect/oauth/authorize?response_type=code&client_id=" . $this->clientId . "&redirect_uri=" . urlencode($params['redirect_uri']) . "&scope=" . $scope_list . "&delegated_scope=" . $delegated_scope_list;
+        $url = $this->appRootUrl . "/enterprise_connect/oauth/authorize?response_type=code&client_id="
+            . $this->clientId . "&redirect_uri=" . urlencode($params['redirect_uri']) . "&scope="
+            . $scope_list . "&delegated_scope=" . $delegated_scope_list;
 
-        if (! empty($params['state'])) {
+        if (!empty($params['state'])) {
             $url .= "&state=" . rawurlencode($params['state']);
         }
         return $url;
     }
 
+    public function requestElementToken($params)
+    {
+        /*
+          Array $params : An array of additional parameters
+          permissions : Array. An array of permissions the token will be granted. REQUIRED
+          subs:  : Array. An array of subs to identify the accounts the token is allowed to access  REQUIRED
+          origin: String he Origin of the application where the Element will be used. REQUIRED
+
+          Response Array:
+          element_token.permissions : The array of permissions granted.
+          element_token.origin : The permitted Origin the token can be used with.
+          element_token.token : The token that is passed to Elements to authenticate them.
+          element_token.expires_in : The number of seconds the token can be used for.
+         */
+        $postfields = [
+            "version" => "1",
+            "permissions" => $params['permissions'],
+            'subs' => $params['subs'],
+            "origin" => $params['origin']
+        ];
+
+        return $this->apiKeyHttpPost("/v1/element_tokens", $postfields);
+    }
+
     public function requestToken($params)
     {
         /*
-         * Array $params : An array of additional paramaters
-         * redirect_uri : String The HTTP or HTTPS URI you wish the user's authorization request decision to be redirected to. REQUIRED
-         * code: The short-lived, single-use code issued to you when the user authorized your access to their account as part of an Authorization REQUIRED
-         *
-         * Response :
-         * true if successful, error string if not
+          Array $params : An array of additional paramaters
+          redirect_uri : String The HTTP or HTTPS URI you wish the user's authorization request decision to be redirected to. REQUIRED
+          code: The short-lived, single-use code issued to you when the user authorized your access to their account as part of an Authorization  REQUIRED
+
+          Response :
+          true if successful, error string if not
          */
         $postfields = [
             'client_id' => $this->clientId,
@@ -218,7 +236,7 @@ class Cronofy
 
         $tokens = $this->httpPost("/oauth/token", $postfields);
 
-        if (! empty($tokens["access_token"])) {
+        if (!empty($tokens["access_token"])) {
             $this->accessToken = $tokens["access_token"];
             $this->refreshToken = $tokens["refresh_token"];
             $this->expiresIn = $tokens["expires_in"];
@@ -232,12 +250,12 @@ class Cronofy
     public function requestDelegatedAuthorization($params)
     {
         /*
-         * Array $params : An array of additional parameters
-         * profile_id : String. This specifies the ID of the profile you wish to get delegated authorization through.
-         * email : String. The email address of the account or resource to receive delegated access to.
-         * callback_url: String. The URL to callback with the result of the delegated access request.
-         * scope : array. The scope of the privileges you want the eventual access_token to grant.
-         * state : String. A value that will be returned to you unaltered along with the delegated authorization request decision.
+          Array $params : An array of additional parameters
+          profile_id : String. This specifies the ID of the profile you wish to get delegated authorization through.
+          email : String. The email address of the account or resource to receive delegated access to.
+          callback_url: String. The URL to callback with the result of the delegated access request.
+          scope : array. The scope of the privileges you want the eventual access_token to grant.
+          state : String. A value that will be returned to you unaltered along with the delegated authorization request decision.
          */
         if (isset($params["scope"]) && gettype($params["scope"]) == "array") {
             $params["scope"] = join(" ", $params["scope"]);
@@ -249,7 +267,7 @@ class Cronofy
     public function requestLinkToken()
     {
         /*
-         * returns $result - The link_token to explicitly link to a pre-existing account. Details are available in the Cronofy API Documentation
+          returns $result - The link_token to explicitly link to a pre-existing account. Details are available in the Cronofy API Documentation
          */
         return $this->httpPost('/' . self::API_VERSION . '/link_tokens');
     }
@@ -257,10 +275,10 @@ class Cronofy
     public function refreshToken()
     {
         /*
-         * String $refresh_token : The refresh_token issued to you when the user authorized your access to their account. REQUIRED
-         *
-         * Response :
-         * true if successful, error string if not
+          String $refresh_token : The refresh_token issued to you when the user authorized your access to their account. REQUIRED
+
+          Response :
+          true if successful, error string if not
          */
         $postfields = [
             'client_id' => $this->clientId,
@@ -271,7 +289,7 @@ class Cronofy
 
         $tokens = $this->httpPost("/oauth/token", $postfields);
 
-        if (! empty($tokens["access_token"])) {
+        if (!empty($tokens["access_token"])) {
             $this->accessToken = $tokens["access_token"];
             $this->refreshToken = $tokens["refresh_token"];
             $this->expiresIn = $tokens["expires_in"];
@@ -285,10 +303,10 @@ class Cronofy
     public function revokeAuthorization($token)
     {
         /*
-         * String token : Either the refresh_token or access_token for the authorization you wish to revoke. REQUIRED
-         *
-         * Response :
-         * true if successful, error string if not
+          String token : Either the refresh_token or access_token for the authorization you wish to revoke. REQUIRED
+
+          Response :
+          true if successful, error string if not
          */
         $postfields = [
             'client_id' => $this->clientId,
@@ -302,7 +320,7 @@ class Cronofy
     public function revokeProfile($profile_id)
     {
         /*
-         * String profile_id : The profile_id of the profile you wish to revoke access to. REQUIRED
+          String profile_id : The profile_id of the profile you wish to revoke access to. REQUIRED
          */
         return $this->httpPost("/" . self::API_VERSION . "/profiles/" . $profile_id . "/revoke");
     }
@@ -310,20 +328,20 @@ class Cronofy
     public function applicationCalendar($application_calendar_id)
     {
         /*
-         * application_calendar_id : String The identifier for the application calendar to create
-         *
-         * Response :
-         * true if successful, error string if not
+          application_calendar_id : String The identifier for the application calendar to create
+
+          Response :
+          true if successful, error string if not
          */
         $postfields = [
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
-            'application_calendar_id' => $application_calendar_id
+            'application_calendar_id' => $application_calendar_id,
         ];
 
         $application_calendar = $this->httpPost("/v1/application_calendars", $postfields);
 
-        if (! empty($application_calendar["access_token"])) {
+        if (!empty($application_calendar["access_token"])) {
             $this->accessToken = $application_calendar["access_token"];
             $this->refreshToken = $application_calendar["refresh_token"];
             $this->expiresIn = $application_calendar["expires_in"];
@@ -337,15 +355,16 @@ class Cronofy
     public function getAccount()
     {
         /*
-         * returns $result - info for the user logged in. Details are available in the Cronofy API Documentation
+          returns $result - info for the user logged in. Details are available in the Cronofy API Documentation
          */
         return $this->httpGet("/" . self::API_VERSION . "/account");
     }
 
+
     public function getUserInfo()
     {
         /*
-         * returns $result - userinfo for the user logged in. Details are available in the Cronofy API Documentation
+          returns $result - userinfo for the user logged in. Details are available in the Cronofy API Documentation
          */
         return $this->httpGet("/" . self::API_VERSION . "/userinfo");
     }
@@ -353,7 +372,7 @@ class Cronofy
     public function getProfiles()
     {
         /*
-         * returns $result - list of all the authenticated user's calendar profiles. Details are available in the Cronofy API Documentation
+          returns $result - list of all the authenticated user's calendar profiles. Details are available in the Cronofy API Documentation
          */
         return $this->httpGet("/" . self::API_VERSION . "/profiles");
     }
@@ -361,42 +380,40 @@ class Cronofy
     public function listCalendars()
     {
         /*
-         * returns $result - Array of calendars. Details are available in the Cronofy API Documentation
+          returns $result - Array of calendars. Details are available in the Cronofy API Documentation
          */
         return $this->httpGet("/" . self::API_VERSION . "/calendars");
     }
 
     public function listAccessibleCalendars($profileId)
     {
-        return $this->httpGet("/" . self::API_VERSION . "/accessible_calendars", [
-            'profile_id' => $profileId
-        ]);
+        return $this->httpGet("/" . self::API_VERSION . "/accessible_calendars", ['profile_id' => $profileId]);
     }
 
     public function readEvents($params)
     {
         /*
-         * Date from : The minimum date from which to return events. Defaults to 16 days in the past. OPTIONAL
-         * Date to : The date to return events up until. Defaults to 201 days in the future. OPTIONAL
-         * String tzid : A string representing a known time zone identifier from the IANA Time Zone Database. REQUIRED
-         * Boolean include_deleted : Indicates whether to include or exclude events that have been deleted.
-         * Defaults to excluding deleted events. OPTIONAL
-         * Boolean include_moved: Indicates whether events that have ever existed within the given window should be
-         * included or excluded from the results. Defaults to only include events currently within the search window. OPTIONAL
-         * Time last_modified : The Time that events must be modified on or after in order to be returned.
-         * Defaults to including all events regardless of when they were last modified. OPTIONAL
-         * Boolean include_managed : Indiciates whether events that you are managing for the account should be included
-         * or excluded from the results. Defaults to include only non-managed events. OPTIONAL
-         * Boolean only_managed : Indicates whether only events that you are managing for the account should be included
-         * in the results. OPTIONAL
-         * Array calendar_ids : Restricts the returned events to those within the set of specified calendar_ids.
-         * Defaults to returning events from all of a user's calendars. OPTIONAL
-         * Boolean localized_times : Indicates whether the events should have their start and end times returned with any
-         * available localization information. Defaults to returning start and end times as simple Time values. OPTIONAL
-         * Boolean include_geo : Indicates whether the events should have their location's latitude and longitude
-         * returned where available. OPTIONAL
-         *
-         * returns $result - Array of events
+          Date from : The minimum date from which to return events. Defaults to 16 days in the past. OPTIONAL
+          Date to : The date to return events up until. Defaults to 201 days in the future. OPTIONAL
+          String tzid : A string representing a known time zone identifier from the IANA Time Zone Database. REQUIRED
+          Boolean include_deleted : Indicates whether to include or exclude events that have been deleted.
+          Defaults to excluding deleted events. OPTIONAL
+          Boolean include_moved: Indicates whether events that have ever existed within the given window should be
+          included or excluded from the results. Defaults to only include events currently within the search window. OPTIONAL
+          Time last_modified : The Time that events must be modified on or after in order to be returned.
+          Defaults to including all events regardless of when they were last modified. OPTIONAL
+          Boolean include_managed : Indiciates whether events that you are managing for the account should be included
+          or excluded from the results. Defaults to include only non-managed events. OPTIONAL
+          Boolean only_managed : Indicates whether only events that you are managing for the account should be included
+          in the results. OPTIONAL
+          Array calendar_ids : Restricts the returned events to those within the set of specified calendar_ids.
+          Defaults to returning events from all of a user's calendars. OPTIONAL
+          Boolean localized_times : Indicates whether the events should have their start and end times returned with any
+          available localization information. Defaults to returning start and end times as simple Time values. OPTIONAL
+          Boolean include_geo : Indicates whether the events should have their location's latitude and longitude
+          returned where available. OPTIONAL
+
+          returns $result - Array of events
          */
         $url = $this->apiUrl("/" . self::API_VERSION . "/events");
 
@@ -406,17 +423,17 @@ class Cronofy
     public function freeBusy($params)
     {
         /*
-         * Date from : The minimum date from which to return free-busy information. Defaults to 16 days in the past. OPTIONAL
-         * Date to : The date to return free-busy information up until. Defaults to 201 days in the future. OPTIONAL
-         * String tzid : A string representing a known time zone identifier from the IANA Time Zone Database. REQUIRED
-         * Boolean include_managed : Indiciates whether events that you are managing for the account should be included or
-         * excluded from the results. Defaults to include only non-managed events. OPTIONAL
-         * Array calendar_ids : Restricts the returned free-busy information to those within the set of specified calendar_ids.
-         * Defaults to returning free-busy information from all of a user's calendars. OPTIONAL
-         * Boolean localized_times : Indicates whether the free-busy information should have their start and end times returned
-         * with any available localization information. Defaults to returning start and end times as simple Time values. OPTIONAL
-         *
-         * returns $result - Array of events
+          Date from : The minimum date from which to return free-busy information. Defaults to 16 days in the past. OPTIONAL
+          Date to : The date to return free-busy information up until. Defaults to 201 days in the future. OPTIONAL
+          String tzid : A string representing a known time zone identifier from the IANA Time Zone Database. REQUIRED
+          Boolean include_managed : Indiciates whether events that you are managing for the account should be included or
+          excluded from the results. Defaults to include only non-managed events. OPTIONAL
+          Array calendar_ids : Restricts the returned free-busy information to those within the set of specified calendar_ids.
+          Defaults to returning free-busy information from all of a user's calendars. OPTIONAL
+          Boolean localized_times : Indicates whether the free-busy information should have their start and end times returned
+          with any available localization information. Defaults to returning start and end times as simple Time values. OPTIONAL
+
+          returns $result - Array of events
          */
         $url = $this->apiUrl("/" . self::API_VERSION . "/free_busy");
 
@@ -426,26 +443,26 @@ class Cronofy
     public function upsertEvent($params)
     {
         /*
-         * calendar_id : The calendar_id of the calendar you wish the event to be added to. REQUIRED
-         * String event_id : The String that uniquely identifies the event. REQUIRED
-         * String summary : The String to use as the summary, sometimes referred to as the name, of the event. REQUIRED
-         * String description : The String to use as the description, sometimes referred to as the notes, of the event. OPTIONAL
-         * String tzid : A String representing a known time zone identifier from the IANA Time Zone Database. OPTIONAL
-         * Time start: The start time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
-         * Time end: The end time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
-         * String location.description : The String describing the event's location. OPTIONAL
-         * String location.lat : The String describing the event's latitude. OPTIONAL
-         * String location.long : The String describing the event's longitude. OPTIONAL
-         * Array reminders : An array of arrays detailing a length of time and a quantity. OPTIONAL
-         * for example: array(array("minutes" => 30), array("minutes" => 1440))
-         * Boolean reminders_create_only: A Boolean specifying whether reminders should only be applied when creating an event. OPTIONAL
-         * String transparency : The transparency of the event. Accepted values are "transparent" and "opaque". OPTIONAL
-         * String color : The color of the event in calendars which support custom event colors. OPTIONAL
-         * Array attendees : An array of "invite" and "reject" arrays which are lists of attendees to invite and remove from the event. OPTIONAL
-         * for example: array("invite" => array(array("email" => "new_invitee@test.com", "display_name" => "New Invitee"))
-         * "reject" => array(array("email" => "old_invitee@test.com", "display_name" => "Old Invitee")))
-         *
-         * returns true on success, associative array of errors on failure
+          calendar_id : The calendar_id of the calendar you wish the event to be added to. REQUIRED
+          String event_id : The String that uniquely identifies the event. REQUIRED
+          String summary : The String to use as the summary, sometimes referred to as the name, of the event. REQUIRED
+          String description : The String to use as the description, sometimes referred to as the notes, of the event. OPTIONAL
+          String tzid : A String representing a known time zone identifier from the IANA Time Zone Database. OPTIONAL
+          Time start: The start time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
+          Time end: The end time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
+          String location.description : The String describing the event's location. OPTIONAL
+          String location.lat : The String describing the event's latitude. OPTIONAL
+          String location.long : The String describing the event's longitude. OPTIONAL
+          Array reminders : An array of arrays detailing a length of time and a quantity. OPTIONAL
+                            for example: array(array("minutes" => 30), array("minutes" => 1440))
+          Boolean reminders_create_only: A Boolean specifying whether reminders should only be applied when creating an event. OPTIONAL
+          String transparency : The transparency of the event. Accepted values are "transparent" and "opaque". OPTIONAL
+          String color : The color of the event in calendars which support custom event colors. OPTIONAL
+          Array attendees : An array of "invite" and "reject" arrays which are lists of attendees to invite and remove from the event. OPTIONAL
+                            for example: array("invite" => array(array("email" => "new_invitee@test.com", "display_name" => "New Invitee"))
+                                               "reject" => array(array("email" => "old_invitee@test.com", "display_name" => "Old Invitee")))
+
+          returns true on success, associative array of errors on failure
          */
         $postfields = [
             'event_id' => $params['event_id'],
@@ -460,25 +477,25 @@ class Cronofy
     public function upsertExternalEvent($params)
     {
         /*
-         * calendar_id : The calendar_id of the calendar you wish the event to be added to. REQUIRED
-         * String event_uid : The String that uniquely identifies the event. REQUIRED
-         * String summary : The String to use as the summary, sometimes referred to as the name, of the event. REQUIRED
-         * String description : The String to use as the description, sometimes referred to as the notes, of the event. OPTIONAL
-         * String tzid : A String representing a known time zone identifier from the IANA Time Zone Database. OPTIONAL
-         * Time start: The start time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
-         * Time end: The end time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
-         * String location.description : The String describing the event's location. OPTIONAL
-         * String location.lat : The String describing the event's latitude. OPTIONAL
-         * String location.long : The String describing the event's longitude. OPTIONAL
-         * Array reminders : An array of arrays detailing a length of time and a quantity. OPTIONAL
-         * for example: array(array("minutes" => 30), array("minutes" => 1440))
-         * Boolean reminders_create_only: A Boolean specifying whether reminders should only be applied when creating an event. OPTIONAL
-         * String transparency : The transparency of the event. Accepted values are "transparent" and "opaque". OPTIONAL
-         * Array attendees : An array of "invite" and "reject" arrays which are lists of attendees to invite and remove from the event. OPTIONAL
-         * for example: array("invite" => array(array("email" => "new_invitee@test.com", "display_name" => "New Invitee"))
-         * "reject" => array(array("email" => "old_invitee@test.com", "display_name" => "Old Invitee")))
-         *
-         * returns true on success, associative array of errors on failure
+          calendar_id : The calendar_id of the calendar you wish the event to be added to. REQUIRED
+          String event_uid : The String that uniquely identifies the event. REQUIRED
+          String summary : The String to use as the summary, sometimes referred to as the name, of the event. REQUIRED
+          String description : The String to use as the description, sometimes referred to as the notes, of the event. OPTIONAL
+          String tzid : A String representing a known time zone identifier from the IANA Time Zone Database. OPTIONAL
+          Time start: The start time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
+          Time end: The end time can be provided as a simple Time string or an object with two attributes, time and tzid. REQUIRED
+          String location.description : The String describing the event's location. OPTIONAL
+          String location.lat : The String describing the event's latitude. OPTIONAL
+          String location.long : The String describing the event's longitude. OPTIONAL
+          Array reminders : An array of arrays detailing a length of time and a quantity. OPTIONAL
+                            for example: array(array("minutes" => 30), array("minutes" => 1440))
+          Boolean reminders_create_only: A Boolean specifying whether reminders should only be applied when creating an event. OPTIONAL
+          String transparency : The transparency of the event. Accepted values are "transparent" and "opaque". OPTIONAL
+          Array attendees : An array of "invite" and "reject" arrays which are lists of attendees to invite and remove from the event. OPTIONAL
+                            for example: array("invite" => array(array("email" => "new_invitee@test.com", "display_name" => "New Invitee"))
+                                               "reject" => array(array("email" => "old_invitee@test.com", "display_name" => "Old Invitee")))
+
+          returns true on success, associative array of errors on failure
          */
         $postFields = [
             'event_uid' => $params['event_uid'],
@@ -492,38 +509,36 @@ class Cronofy
 
     private function baseUpsertEvent($postFields, $params)
     {
-        if (! empty($params['description'])) {
+        if (!empty($params['description'])) {
             $postFields['description'] = $params['description'];
         }
-        if (! empty($params['tzid'])) {
+        if (!empty($params['tzid'])) {
             $postFields['tzid'] = $params['tzid'];
         }
-        if (! empty($params['location'])) {
+        if (!empty($params['location'])) {
             $postFields['location'] = $params['location'];
         }
-        if (! empty($params['reminders'])) {
+        if (!empty($params['reminders'])) {
             $postFields['reminders'] = $params['reminders'];
         }
-        if (! empty($params['reminders_create_only'])) {
+        if (!empty($params['reminders_create_only'])) {
             $postFields['reminders_create_only'] = $params['reminders_create_only'];
         }
-        if (! empty($params['event_private'])) {
+        if (!empty($params['event_private'])) {
             $postFields['event_private'] = $params['event_private'];
         }
-        if (! empty($params['transparency'])) {
+        if (!empty($params['transparency'])) {
             $postFields['transparency'] = $params['transparency'];
         }
-        if (! empty($params['color'])) {
+        if (!empty($params['color'])) {
             $postFields['color'] = $params['color'];
         }
-        if (! empty($params['attendees'])) {
+        if (!empty($params['attendees'])) {
             $postFields['attendees'] = $params['attendees'];
         }
-        if (! empty($params['conferencing'])) {
-            if (! empty($params['conferencing']['profile_id'])) {
-                $postFields['conferencing'] = [
-                    'profile_id' => $params['conferencing']['profile_id']
-                ];
+        if (!empty($params['conferencing'])) {
+            if (!empty($params['conferencing']['profile_id'])) {
+                $postFields['conferencing'] = ['profile_id' => $params['conferencing']['profile_id']];
             }
         }
 
@@ -533,14 +548,12 @@ class Cronofy
     public function deleteEvent($params)
     {
         /*
-         * calendar_id : The calendar_id of the calendar you wish the event to be removed from. REQUIRED
-         * String event_id : The String that uniquely identifies the event. REQUIRED
-         *
-         * returns true on success, associative array of errors on failure
+          calendar_id : The calendar_id of the calendar you wish the event to be removed from. REQUIRED
+          String event_id : The String that uniquely identifies the event. REQUIRED
+
+          returns true on success, associative array of errors on failure
          */
-        $postFields = [
-            'event_id' => $params['event_id']
-        ];
+        $postFields = ['event_id' => $params['event_id']];
 
         return $this->httpDelete("/" . self::API_VERSION . "/calendars/" . $params['calendar_id'] . "/events", $postFields);
     }
@@ -548,14 +561,12 @@ class Cronofy
     public function deleteExternalEvent($params)
     {
         /*
-         * calendar_id : The calendar_id of the calendar you wish the event to be removed from. REQUIRED
-         * String event_uid : The String that uniquely identifies the event. REQUIRED
-         *
-         * returns true on success, associative array of errors on failure
+          calendar_id : The calendar_id of the calendar you wish the event to be removed from. REQUIRED
+          String event_uid : The String that uniquely identifies the event. REQUIRED
+
+          returns true on success, associative array of errors on failure
          */
-        $postFields = [
-            'event_uid' => $params['event_uid']
-        ];
+        $postFields = ['event_uid' => $params['event_uid']];
 
         return $this->httpDelete("/" . self::API_VERSION . "/calendars/" . $params['calendar_id'] . "/events", $postFields);
     }
@@ -563,15 +574,13 @@ class Cronofy
     public function createChannel($params)
     {
         /*
-         * String callback_url : The URL that is notified whenever a change is made. REQUIRED
-         *
-         * returns $result - Details of new channel. Details are available in the Cronofy API Documentation
-         */
-        $postFields = [
-            'callback_url' => $params['callback_url']
-        ];
+          String callback_url : The URL that is notified whenever a change is made. REQUIRED
 
-        if (! empty($params['filters'])) {
+          returns $result - Details of new channel. Details are available in the Cronofy API Documentation
+        */
+        $postFields = ['callback_url' => $params['callback_url']];
+
+        if (!empty($params['filters'])) {
             $postFields['filters'] = $params['filters'];
         }
 
@@ -581,7 +590,7 @@ class Cronofy
     public function listChannels()
     {
         /*
-         * returns $result - Array of channels. Details are available in the Cronofy API Documentation
+          returns $result - Array of channels. Details are available in the Cronofy API Documentation
          */
         return $this->httpGet("/" . self::API_VERSION . "/channels");
     }
@@ -589,9 +598,9 @@ class Cronofy
     public function closeChannel($params)
     {
         /*
-         * channel_id : The ID of the channel to be closed. REQUIRED
-         *
-         * returns $result - Array of channels. Details are available in the Cronofy API Documentation
+          channel_id : The ID of the channel to be closed. REQUIRED
+
+          returns $result - Array of channels. Details are available in the Cronofy API Documentation
          */
         return $this->httpDelete("/" . self::API_VERSION . "/channels/" . $params['channel_id']);
     }
@@ -599,9 +608,9 @@ class Cronofy
     public function authorizeWithServiceAccount($params)
     {
         /*
-         * email : The email of the user to be authorized. REQUIRED
-         * scope : The scopes to authorize for the user. REQUIRED
-         * callback_url : The URL to return to after authorization. REQUIRED
+          email : The email of the user to be authorized. REQUIRED
+          scope : The scopes to authorize for the user. REQUIRED
+          callback_url : The URL to return to after authorization. REQUIRED
          */
         if (isset($params["scope"]) && gettype($params["scope"]) == "array") {
             $params["scope"] = join(" ", $params["scope"]);
@@ -613,8 +622,8 @@ class Cronofy
     public function elevatedPermissions($params)
     {
         /*
-         * permissions : The permissions to elevate to. Should be in an array of `array($calendar_id, $permission_level)`. REQUIRED
-         * redirect_uri : The application's redirect URI. REQUIRED
+          permissions : The permissions to elevate to. Should be in an array of `array($calendar_id, $permission_level)`. REQUIRED
+          redirect_uri : The application's redirect URI. REQUIRED
          */
         return $this->httpPost("/" . self::API_VERSION . "/permissions", $params);
     }
@@ -622,8 +631,8 @@ class Cronofy
     public function createCalendar($params)
     {
         /*
-         * profile_id : The ID for the profile on which to create the calendar. REQUIRED
-         * name : The name for the created calendar. REQUIRED
+          profile_id : The ID for the profile on which to create the calendar. REQUIRED
+          name : The name for the created calendar. REQUIRED
          */
         return $this->httpPost("/" . self::API_VERSION . "/calendars", $params);
     }
@@ -631,8 +640,8 @@ class Cronofy
     public function resources()
     {
         /*
-         * returns $result - Array of resources. Details
-         * are available in the Cronofy API Documentation
+          returns $result - Array of resources. Details
+          are available in the Cronofy API Documentation
          */
         return $this->httpGet('/' . self::API_VERSION . "/resources");
     }
@@ -640,9 +649,9 @@ class Cronofy
     public function changeParticipationStatus($params)
     {
         /*
-         * calendar_id : The ID of the calendar holding the event. REQUIRED
-         * event_uid : The UID of the event to chang ethe participation status of. REQUIRED
-         * status : The new participation status for the event. Accepted values are: accepted, tentative, declined. REQUIRED
+          calendar_id : The ID of the calendar holding the event. REQUIRED
+          event_uid : The UID of the event to chang ethe participation status of. REQUIRED
+          status : The new participation status for the event. Accepted values are: accepted, tentative, declined. REQUIRED
          */
         $postFields = [
             "status" => $params["status"]
@@ -654,28 +663,28 @@ class Cronofy
     public function availability($params)
     {
         /*
-         * participants : An array of the groups of participants whose availability should be taken into account. REQUIRED
-         * for example: array(
-         * array("members" => array(
-         * array("sub" => "acc_567236000909002"),
-         * array("sub" => "acc_678347111010113")
-         * ), "required" => "all")
-         * )
-         * required_duration : Duration that an available period must last to be considered viable. REQUIRED
-         * for example: array("minutes" => 60)
-         *
-         * start_interval : Duration that an events can start on for example: array("minutes" => 60)
-         * buffer : Buffer to apply before or after events can start
-         * for example:
-         * array(
-         * array("before" => array("minutes" => 30)),
-         * array("after" => array("minutes" => 30))
-         * )
-         * available_periods : An array of available periods within which suitable matches may be found. REQUIRED
-         * for example: array(
-         * array("start" => "2017-01-01T09:00:00Z", "end" => "2017-01-01T18:00:00Z"),
-         * array("start" => "2017-01-02T09:00:00Z", "end" => "2017-01-02T18:00:00Z")
-         * )
+          participants : An array of the groups of participants whose availability should be taken into account. REQUIRED
+                         for example: array(
+                                        array("members" => array(
+                                          array("sub" => "acc_567236000909002"),
+                                          array("sub" => "acc_678347111010113")
+                                        ), "required" => "all")
+                                      )
+          required_duration : Duration that an available period must last to be considered viable. REQUIRED
+                         for example: array("minutes" => 60)
+
+          start_interval : Duration that an events can start on for example: array("minutes" => 60)
+          buffer : Buffer to apply before or after events can start
+                          for example:
+                              array(
+                                  array("before" => array("minutes" => 30)),
+                                  array("after" => array("minutes" => 30))
+                              )
+          available_periods : An array of available periods within which suitable matches may be found. REQUIRED
+                         for example: array(
+                                        array("start" => "2017-01-01T09:00:00Z", "end" => "2017-01-01T18:00:00Z"),
+                                        array("start" => "2017-01-02T09:00:00Z", "end" => "2017-01-02T18:00:00Z")
+                                      )
          */
         $postFields = [
             "available_periods" => $params["available_periods"],
@@ -683,16 +692,16 @@ class Cronofy
             "required_duration" => $params["required_duration"]
         ];
 
-        if (! empty($params["buffer"])) {
+        if (!empty($params["buffer"])) {
             $postFields["buffer"] = $params["buffer"];
         }
-        if (! empty($params["max_results"])) {
+        if (!empty($params["max_results"])) {
             $postFields["max_results"] = $params["max_results"];
         }
-        if (! empty($params["start_interval"])) {
+        if (!empty($params["start_interval"])) {
             $postFields["start_interval"] = $params["start_interval"];
         }
-        if (! empty($params["response_format"])) {
+        if (!empty($params["response_format"])) {
             $postFields["response_format"] = $params["response_format"];
         }
 
@@ -702,49 +711,50 @@ class Cronofy
     public function realTimeScheduling($params)
     {
         /*
-         * oauth: An object of redirect_uri and scope following the event creation
-         * for example: array(
-         * "redirect_uri" => "http://test.com/",
-         * "scope" => "test_scope"
-         * )
-         * event: An object with an event's details
-         * for example: array(
-         * "event_id" => "test_event_id",
-         * "summary" => "Add to Calendar test event",
-         * )
-         * availability: An object holding the event's availability information
-         * for example: array(
-         * "participants" => array(
-         * array(
-         * "members" => array(
-         * array(
-         * "sub" => "acc_567236000909002"
-         * "calendar_ids" => array("cal_n23kjnwrw2_jsdfjksn234")
-         * )
-         * ),
-         * "required" => "all"
-         * )
-         * ),
-         * "required_duration" => array(
-         * "minutes" => 60
-         * ),
-         * "available_periods" => array(
-         * array(
-         * "start" => "2017-01-01T09:00:00Z",
-         * "end" => "2017-01-01T17:00:00Z"
-         * )
-         * )
-         * )
-         * target_calendars: An object holding the calendars for the event to be inserted into
-         * for example: array(
-         * array(
-         * "sub" => "acc_567236000909002",
-         * "calendar_id" => "cal_n23kjnwrw2_jsdfjksn234"
-         * )
-         * )
-         * tzid: the timezone to create the event in
-         * for example: 'Europe/London'
+          oauth: An object of redirect_uri and scope following the event creation
+                 for example: array(
+                                "redirect_uri" => "http://test.com/",
+                                "scope" => "test_scope"
+                              )
+          event: An object with an event's details
+                 for example: array(
+                                "event_id" => "test_event_id",
+                                "summary" => "Add to Calendar test event",
+                              )
+          availability: An object holding the event's availability information
+                 for example: array(
+                                "participants" => array(
+                                  array(
+                                    "members" => array(
+                                      array(
+                                        "sub" => "acc_567236000909002"
+                                        "calendar_ids" => array("cal_n23kjnwrw2_jsdfjksn234")
+                                      )
+                                    ),
+                                    "required" => "all"
+                                  )
+                                ),
+                                "required_duration" => array(
+                                  "minutes" => 60
+                                ),
+                                "available_periods" => array(
+                                  array(
+                                    "start" => "2017-01-01T09:00:00Z",
+                                    "end" => "2017-01-01T17:00:00Z"
+                                  )
+                                )
+                              )
+          target_calendars: An object holding the calendars for the event to be inserted into
+                  for example: array(
+                    array(
+                      "sub" => "acc_567236000909002",
+                      "calendar_id" => "cal_n23kjnwrw2_jsdfjksn234"
+                    )
+                  )
+          tzid: the timezone to create the event in
+                for example:  'Europe/London'
          */
+
         $postFields = [
             "client_id" => $this->clientId,
             "client_secret" => $this->clientSecret,
@@ -752,7 +762,7 @@ class Cronofy
             "event" => $params["event"],
             "availability" => $params["availability"],
             "target_calendars" => $params["target_calendars"],
-            "tzid" => $params["tzid"]
+            "tzid" => $params["tzid"],
         ];
 
         return $this->httpPost("/" . self::API_VERSION . "/real_time_scheduling", $postFields);
@@ -761,56 +771,57 @@ class Cronofy
     public function realTimeSequencing($params)
     {
         /*
-         * oauth: An object of redirect_uri and scope following the event creation
-         * for example: array(
-         * "redirect_uri" => "http://test.com/",
-         * "scope" => "test_scope"
-         * )
-         * event: An object with an event's details
-         * for example: array(
-         * "event_id" => "test_event_id",
-         * "summary" => "Add to Calendar test event",
-         * )
-         * availability: An object holding the event's availability information
-         * for example: array(
-         * "sequence" => array(
-         * array(
-         * "sequence_id" => "123",
-         * "ordinal" => 1,
-         * "participants" => array(
-         * array(
-         * "members" => array(
-         * array(
-         * "sub" => "acc_567236000909002",
-         * "calendar_ids" => array("cal_n23kjnwrw2_jsdfjksn234")
-         * )
-         * ),
-         * "required" => "all"
-         * )
-         * ),
-         * "event" => $event,
-         * "required_duration" => array(
-         * "minutes" => 60
-         * ),
-         * ),
-         * ),
-         * "available_periods" => array(
-         * array(
-         * "start" => "2017-01-01T09:00:00Z",
-         * "end" => "2017-01-01T17:00:00Z"
-         * )
-         * )
-         * );
-         * target_calendars: An object holding the calendars for the event to be inserted into
-         * for example: array(
-         * array(
-         * "sub" => "acc_567236000909002",
-         * "calendar_id" => "cal_n23kjnwrw2_jsdfjksn234"
-         * )
-         * )
-         * tzid: the timezone to create the event in
-         * for example: 'Europe/London'
+          oauth: An object of redirect_uri and scope following the event creation
+                 for example: array(
+                                "redirect_uri" => "http://test.com/",
+                                "scope" => "test_scope"
+                              )
+          event: An object with an event's details
+                 for example: array(
+                                "event_id" => "test_event_id",
+                                "summary" => "Add to Calendar test event",
+                              )
+          availability: An object holding the event's availability information
+                for example: array(
+                        "sequence" => array(
+                            array(
+                                "sequence_id" => "123",
+                                "ordinal" => 1,
+                                "participants" => array(
+                                    array(
+                                        "members" => array(
+                                            array(
+                                                "sub" => "acc_567236000909002",
+                                                "calendar_ids" => array("cal_n23kjnwrw2_jsdfjksn234")
+                                            )
+                                        ),
+                                        "required" => "all"
+                                    )
+                                ),
+                                "event" => $event,
+                                "required_duration" => array(
+                                    "minutes" => 60
+                                ),
+                            ),
+                        ),
+                        "available_periods" => array(
+                            array(
+                                "start" => "2017-01-01T09:00:00Z",
+                                "end" => "2017-01-01T17:00:00Z"
+                            )
+                        )
+                    );
+          target_calendars: An object holding the calendars for the event to be inserted into
+                  for example: array(
+                    array(
+                      "sub" => "acc_567236000909002",
+                      "calendar_id" => "cal_n23kjnwrw2_jsdfjksn234"
+                    )
+                  )
+          tzid: the timezone to create the event in
+                for example:  'Europe/London'
          */
+
         $postFields = [
             "client_id" => $this->clientId,
             "client_secret" => $this->clientSecret,
@@ -818,33 +829,35 @@ class Cronofy
             "event" => $params["event"],
             "availability" => $params["availability"],
             "target_calendars" => $params["target_calendars"],
-            "tzid" => $params["tzid"]
+            "tzid" => $params["tzid"],
         ];
 
         return $this->httpPost("/" . self::API_VERSION . "/real_time_sequencing", $postFields);
     }
 
+
     public function addToCalendar($params)
     {
         /*
-         * oauth: An object of redirect_uri and scope following the event creation
-         * for example: array(
-         * "redirect_uri" => "http://test.com/",
-         * "scope" => "test_scope"
-         * )
-         * event: An object with an event's details
-         * for example: array(
-         * "event_id" => "test_event_id",
-         * "summary" => "Add to Calendar test event",
-         * "start" => "2017-01-01T12:00:00Z",
-         * "end" => "2017-01-01T15:00:00Z"
-         * )
+          oauth: An object of redirect_uri and scope following the event creation
+                 for example: array(
+                                "redirect_uri" => "http://test.com/",
+                                "scope" => "test_scope"
+                              )
+          event: An object with an event's details
+                 for example: array(
+                                "event_id" => "test_event_id",
+                                "summary" => "Add to Calendar test event",
+                                "start" => "2017-01-01T12:00:00Z",
+                                "end" => "2017-01-01T15:00:00Z"
+                              )
          */
+
         $postFields = [
             "client_id" => $this->clientId,
             "client_secret" => $this->clientSecret,
             "oauth" => $params["oauth"],
-            "event" => $params["event"]
+            "event" => $params["event"],
         ];
 
         return $this->httpPost("/" . self::API_VERSION . "/add_to_calendar", $postFields);
@@ -853,34 +866,35 @@ class Cronofy
     public function createSmartInvite($params)
     {
         /*
-         * Array event: An object with an event's details REQUIRED
-         * for example: array(
-         * "summary" => "Add to Calendar test event",
-         * "start" => "2017-01-01T12:00:00Z",
-         * "end" => "2017-01-01T15:00:00Z"
-         * )
-         * Array recipient: An object with recipient details REQUIRED
-         * for example: array(
-         * "email" => "example@example.com"
-         * )
-         * String smart_invite_id: A string representing the id for the smart invite. REQUIRED
-         * String callback_url : The URL that is notified whenever a change is made. REQUIRED
-         * Array organizer: An object with recipient details OPTIONAL
-         * for example: array(
-         * "name" => "Smart invite organizer"
-         * )
+          Array event: An object with an event's details REQUIRED
+                 for example: array(
+                                "summary" => "Add to Calendar test event",
+                                "start" => "2017-01-01T12:00:00Z",
+                                "end" => "2017-01-01T15:00:00Z"
+                              )
+          Array recipient: An object with recipient details REQUIRED
+                     for example: array(
+                         "email" => "example@example.com"
+                     )
+          String smart_invite_id: A string representing the id for the smart invite. REQUIRED
+          String callback_url : The URL that is notified whenever a change is made. REQUIRED
+          Array organizer: An object with recipient details OPTIONAL
+                     for example: array(
+                         "name" => "Smart invite organizer"
+                     )
          */
+
         $postFields = [
             "event" => $params["event"],
             "smart_invite_id" => $params["smart_invite_id"],
-            "callback_url" => $params["callback_url"]
+            "callback_url" => $params["callback_url"],
         ];
 
-        if (! empty($params['organizer'])) {
+        if (!empty($params['organizer'])) {
             $postFields['organizer'] = $params['organizer'];
         }
 
-        if (! empty($params['recipients'])) {
+        if (!empty($params['recipients'])) {
             $postFields['recipients'] = $params['recipients'];
         } else {
             $postFields['recipient'] = $params['recipient'];
@@ -892,18 +906,19 @@ class Cronofy
     public function cancelSmartInvite($params)
     {
         /*
-         * Array recipient: An object with recipient details REQUIRED
-         * for example: array(
-         * "email" => "example@example.com"
-         * )
-         * String smart_invite_id: A string representing the id for the smart invite. REQUIRED
+          Array recipient: An object with recipient details REQUIRED
+                     for example: array(
+                         "email" => "example@example.com"
+                     )
+          String smart_invite_id: A string representing the id for the smart invite. REQUIRED
          */
+
         $postFields = [
             "smart_invite_id" => $params["smart_invite_id"],
-            "method" => "cancel"
+            "method" => "cancel",
         ];
 
-        if (! empty($params['recipients'])) {
+        if (!empty($params['recipients'])) {
             $postFields['recipients'] = $params['recipients'];
         } else {
             $postFields['recipient'] = $params['recipient'];
@@ -915,12 +930,13 @@ class Cronofy
     public function getSmartInvite($smart_invite_id, $recipient_email)
     {
         /*
-         * String smart_invite_id: A string representing the id for the smart invite. REQUIRED
-         * String recipient_email: A string representing the email of the recipient to get status for. REQUIRED
+          String smart_invite_id: A string representing the id for the smart invite. REQUIRED
+          String recipient_email: A string representing the email of the recipient to get status for. REQUIRED
          */
+
         $urlParams = [
             "smart_invite_id" => $smart_invite_id,
-            "recipient_email" => $recipient_email
+            "recipient_email" => $recipient_email,
         ];
 
         return $this->apiKeyHttpGet("/" . self::API_VERSION . "/smart_invites", $urlParams);
@@ -929,55 +945,59 @@ class Cronofy
     public function getAvailabilityRule($availability_rule_id)
     {
         /*
-         * String availability_rule_id: A string representing the id for the rule. REQUIRED
+          String availability_rule_id: A string representing the id for the rule. REQUIRED
          */
+
         return $this->httpGet("/" . self::API_VERSION . "/availability_rules/" . $availability_rule_id);
     }
 
     public function listAvailabilityRules()
     {
+
         return $this->httpGet("/" . self::API_VERSION . "/availability_rules");
     }
 
     public function deleteAvailabilityRule($availability_rule_id)
     {
         /*
-         * String availability_rule_id: A string representing the id for the rule. REQUIRED
-         *
-         * returns true on success, associative array of errors on failure
+          String availability_rule_id: A string representing the id for the rule. REQUIRED
+
+          returns true on success, associative array of errors on failure
          */
+
         return $this->httpDelete("/" . self::API_VERSION . "/availability_rules/" . $availability_rule_id);
     }
 
     public function createAvailabilityRule($rule)
     {
         /*
-         * Array rule: An object with an availability rule's details REQUIRED
-         * for example: array(
-         * "availability_rule_id" => "default",
-         * "tzid" => "America/Chicago",
-         * "calendar_ids" => array(
-         * "cal_123"
-         * ),
-         * "weekly_periods" => array(
-         * array(
-         * "day" => "monday",
-         * "start_time" => "09:30",
-         * "end_time" => "12:30"
-         * ),
-         * array(
-         * "day" => "wednesday",
-         * "start_time" => "09:30",
-         * "end_time" => "12:30"
-         * )
-         * )
-         * )
+          Array rule: An object with an availability rule's details REQUIRED
+                 for example: array(
+                                "availability_rule_id" => "default",
+                                "tzid" => "America/Chicago",
+                                "calendar_ids" => array(
+                                    "cal_123"
+                                ),
+                                "weekly_periods" => array(
+                                    array(
+                                        "day" => "monday",
+                                        "start_time" => "09:30",
+                                        "end_time" => "12:30"
+                                    ),
+                                    array(
+                                        "day" => "wednesday",
+                                        "start_time" => "09:30",
+                                        "end_time" => "12:30"
+                                    )
+                                )
+                            )
          */
+
         $postFields = [
             "availability_rule_id" => $rule["availability_rule_id"],
             "tzid" => $rule["tzid"],
             "calendar_ids" => $rule["calendar_ids"],
-            "weekly_periods" => $rule["weekly_periods"]
+            "weekly_periods" => $rule["weekly_periods"],
         ];
 
         return $this->httpPost("/" . self::API_VERSION . "/availability_rules", $postFields);
@@ -997,7 +1017,7 @@ class Cronofy
 
         foreach ($params as $key => $val) {
             if (gettype($val) == "array") {
-                for ($i = 0; $i < count($val); $i ++) {
+                for ($i = 0; $i < count($val); $i++) {
                     array_push($str_params, $key . "[]=" . urlencode($val[$i]));
                 }
             } elseif (gettype($val) == "boolean") {

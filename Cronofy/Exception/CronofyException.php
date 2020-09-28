@@ -1,13 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types = 1);
 namespace Cronofy\Exception;
 
-use Exception;
+use \Exception;
 
 class CronofyException extends Exception
 {
-
     private $errorDetails;
 
     public function __construct($message, $code = 0, $errorDetails = null)

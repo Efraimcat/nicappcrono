@@ -1,11 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
-declare(strict_types = 1);
 namespace Cronofy\Http;
 
 class CurlRequest implements HttpRequest
 {
-
     public $useragent;
 
     public function __construct($useragent)
@@ -29,15 +27,12 @@ class CurlRequest implements HttpRequest
         $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
-        return [
-            $result,
-            $status_code
-        ];
+        return [$result, $status_code];
     }
 
     public function getPage($url, array $auth_headers, $url_params = "")
     {
-        return $this->httpGet($url . $url_params, $auth_headers);
+        return $this->httpGet($url.$url_params, $auth_headers);
     }
 
     public function httpPost($url, array $params, array $auth_headers)
@@ -59,10 +54,7 @@ class CurlRequest implements HttpRequest
         $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
-        return [
-            $result,
-            $status_code
-        ];
+        return [$result, $status_code];
     }
 
     public function httpDelete($url, array $params, array $auth_headers)
@@ -83,9 +75,6 @@ class CurlRequest implements HttpRequest
         $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
 
-        return [
-            $result,
-            $status_code
-        ];
+        return [$result, $status_code];
     }
 }
