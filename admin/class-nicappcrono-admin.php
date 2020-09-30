@@ -91,6 +91,10 @@ class Nicappcrono_Admin
             $this,
             'nicappcrono_add_plugin_page_settings_link'
         ), 10, 1);
+        add_filter('cron_schedules', array(
+            $this,
+            'nicappcrono_cron_schedules'
+        ));
     }
 
     /**
@@ -138,6 +142,25 @@ class Nicappcrono_Admin
         $this->UpdateMasterCalendar();
     }
 
+    /**
+     * Register the Cron Job Schedule.
+     *
+     * @since 1.0.3
+     * @access public
+     * @param
+     *            void
+     *
+     */
+    public function nicappcrono_cron_schedules()
+    {
+        if(!isset($schedules["nicappcronoCronSchedule"])){
+            $schedules["nicappcronoCronSchedule"] = array(
+                'interval' => 60*60,
+                'display' => __('Every', $this->plugin_name) . ' 60 ' . __('minutes', $this->plugin_name));
+        }
+        return $schedules;
+    }
+    
     /**
      * Register custom post type.
      *

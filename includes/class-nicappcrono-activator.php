@@ -22,10 +22,9 @@
  */
 class Nicappcrono_Activator
 {
-
+    
     /**
      * Short Description.
-     * (use period)
      *
      * Long Description.
      *
