@@ -35,6 +35,7 @@ For detailed installation instructions, please read the [standard installation p
 = 1.0.3 =
 
   * Added schedule time setting
+  * [ONGOING] Added new Cronofy datacenters for Singapure and Australia
 
 = 1.0.2 =
   

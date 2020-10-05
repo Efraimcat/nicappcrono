@@ -22,6 +22,16 @@
 	</p>
 	<hr />
 	<p>
+		<?php _e( 'Scheduling Interval:', $this->plugin_name ); ?>
+		<?php esc_html_e( ' ' . get_option($this->plugin_name . '_ScheduleInterval') . ' '); ?>
+		<?php _e( 'minutes', $this->plugin_name ); ?>
+	</p>
+	<form action="" method="post">
+		<input type="text" size="4" id="NewScheduleInterval" name="NewScheduleInterval" value="<?php esc_html_e( get_option($this->plugin_name . '_ScheduleInterval')); ?>" />
+		<input type="submit" value="<?php _e( 'New Interval', $this->plugin_name ); ?>">	
+	</form>
+	<hr />
+	<p>
 		<?php _e( 'Log files: ', $this->plugin_name ); ?>
 		<?php $this->logFiles(); ?>
 		<?php $this->ShowLogFile(); ?>

@@ -87,6 +87,10 @@ class Nicappcrono_Admin
             $this,
             'CheckAuthPage'
         ));
+        add_action('admin_init', array(
+            $this,
+            'CheckNewSchedule'
+        ));
         add_filter('plugin_action_links_' . $this->plugin_name, array(
             $this,
             'nicappcrono_add_plugin_page_settings_link'
@@ -151,12 +155,14 @@ class Nicappcrono_Admin
      *            void
      *
      */
-    public function nicappcrono_cron_schedules()
+    public function nicappcrono_cron_schedules( $schedules )
     {
-        if(!isset($schedules["nicappcronoCronSchedule"])){
+        $interval = get_option( $this->plugin_name . '_ScheduleInterval' );
+        if ( $interval < 1 ) $interval = 60;
+        if (!isset ($schedules["nicappcronoCronSchedule"]) ){
             $schedules["nicappcronoCronSchedule"] = array(
-                'interval' => 60*60,
-                'display' => __('Every', $this->plugin_name) . ' 60 ' . __('minutes', $this->plugin_name));
+                'interval' => 60*$interval,
+                'display' => __('Every', $this->plugin_name) . ' ' . $interval . ' ' . __('minutes', $this->plugin_name));
         }
         return $schedules;
     }
@@ -1242,6 +1248,57 @@ class Nicappcrono_Admin
         return true;
     }
 
+    /**
+     * Check New Schedule Interval
+     *
+     * @since 1.0.3
+     * @access public
+     * @param
+     *            void
+     *
+     */
+    public function CheckNewSchedule()
+    {
+        if (isset($_POST['NewScheduleInterval'])) {
+            $NewScheduleInterval = (int)$_POST['NewScheduleInterval'];
+            if ( $NewScheduleInterval < 1 || $NewScheduleInterval > 60*12 ){
+                $type = 'error';
+                $message = __( 'ERROR. Incorrect Interval', $this->plugin_name );
+            }else{
+                update_option( $this->plugin_name . '_ScheduleInterval', $_POST['NewScheduleInterval'] );
+                add_filter( ‘cron_schedules’, array( $this, ‘nicappcrono_cron_job_recurrence’ ) );
+                wp_clear_scheduled_hook('nicappcronoCronJob');
+                wp_schedule_event(time(), 'nicappcronoCronSchedule', 'nicappcronoCronJob');
+                $type = 'updated';
+                $message = __( 'Successfully updated', $this->plugin_name ) . ' to ' . $NewScheduleInterval . ' ' . __( 'minutes', $this->plugin_name );
+            }
+            add_settings_error(
+                'NewScheduleInterval',
+                esc_attr( 'settings_updated' ),
+                $message,
+                $type
+                );
+        }
+    }
+    
+    /**
+     * New Schedule Interval
+     *
+     * @since 1.0.3
+     * @access public
+     * @param
+     *            void
+     *
+     */
+    public function nicappcrono_cron_job_recurrence( $schedules ){
+        $interval = 60*(int)get_option( $this->plugin_name . '_ScheduleInterval' );
+        $schedules[ 'nicappcronoCronSchedule' ] = array( 
+            'interval' => $interval,
+            'display' => __('Every', $this->plugin_name) . get_option( $this->plugin_name . '_ScheduleInterval' ) . __('minutes', $this->plugin_name),
+        );
+        return $schedules;
+    }
+    
     /**
      * Cron job maintenance tasks.
      *
