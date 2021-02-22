@@ -518,8 +518,7 @@ class Nicappcrono_Admin
                 if ($args['subtype'] != 'checkbox') {
                     $prependStart = (isset($args['prepend_value'])) ? '<div class="input-prepend"> <span class="add-on">' . $args['prepend_value'] . '</span>' : '';
                     $prependEnd = (isset($args['prepend_value'])) ? '</div>' : '';
-                    if ($args['id'] == 'nicappcrono_AuthorizationPageId')
-                        $prependEnd = ' ' . get_the_title($value) . '</div>';
+                    if ($args['id'] == 'nicappcrono_AuthorizationPageId') $prependEnd = ' ' . get_the_title($value) . '</div>';
                     $step = (isset($args['step'])) ? 'step="' . $args['step'] . '"' : '';
                     $min = (isset($args['min'])) ? 'min="' . $args['min'] . '"' : '';
                     $max = (isset($args['max'])) ? 'max="' . $args['max'] . '"' : '';
